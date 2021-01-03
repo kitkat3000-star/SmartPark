@@ -32,7 +32,7 @@ public class HomeFragment extends Fragment {
 
         NavController navController = Navigation.findNavController(view);
 
-        Button button = view.findViewById(R.id.Booknow);
+        Button button = view.findViewById(R.id.Book);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +64,7 @@ public class HomeFragment extends Fragment {
         }
         });
 
-        ImageView userprofile = view.findViewById(R.id.userprofile);
+        Button userprofile = view.findViewById(R.id.userprofile);
         userprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
