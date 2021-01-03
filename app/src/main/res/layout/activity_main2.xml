@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2"
-    android:background="@drawable/bggradient">
+    android:background="@drawable/bggradient"
+    tools:context=".MainActivity2">
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="478dp"
         android:layout_height="734dp"
         android:alpha="0.2"
-        android:src="@drawable/area__display_elementsdefault_"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.358"
@@ -59,13 +58,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/editTextloginemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/area__display_elementsdefault__statedefault_"
         android:ems="10"
+        android:hint="email"
         android:inputType="textEmailAddress"
-        android:text="   Username or Email"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,22 +74,23 @@
         app:layout_constraintVertical_bias="0.297" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/edittextloginPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/area__display_elementsdefault__statedefault_"
         android:ems="10"
+        android:hint="password"
         android:inputType="textPassword"
-        android:text="Password"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextloginemail"
+        app:layout_constraintVertical_bias="0.078" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signinbutton"
+        android:id="@+id/SignInBtn"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="280dp"
         android:layout_height="48dp"
@@ -100,7 +100,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/edittextloginPass" />
 
     <CheckBox
         android:id="@+id/checkBox"
