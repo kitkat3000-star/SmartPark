@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Projectapplicationmain</string>
+    <string name="registeruser"><u>Don\'t have an account yet \?</u></string>
+    <string name="bookpark"><i>Please note that selecting a Valet Parking option will redirect you to the entrance for the selected zone</i></string>
+    <string name="bookhistory"><i>Please tap on a booking to view details</i></string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_main4">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_home1">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_chatsupport">Chat support</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_scanbarcode">Scan Barcode</string>
+    <string name="title_parking">Parking</string>
+    <string name="map">map</string>
+    <string name="carwash"> carwash </string>
+    <string name="carlocation">carlocation</string>
+    <string name="userprofile">userprofile</string>
+    <string name="vipbook">vipbook</string>
+    <string name="exisitingvipbook">existingvipbook</string>
+    <string name="bookinghistory">bookinghistory</string>
+    <string name="bookingdetails">bookingdetails</string>
+    <string name="receipts">receipts</string>
+    <string-array name="zone_array">
+        <item>University of Wollongong</item>
+        <item>Heriott Watt</item>
+    </string-array>
+    <string name="title_activity_main5">MainActivity</string>
+    <string name="CarRequest" />
+    <string name="Information">Information</string>
+    <string name="Myvehicles">Myvehicles</string>
+</resources>

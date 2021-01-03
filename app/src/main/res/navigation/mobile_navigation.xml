@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.projectapplicationmain.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_scanbarcode"
+            app:destination="@id/navigation_scanbarcode"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_vipbook"
+            app:destination="@id/navigation_vipbook" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_bookinghistory"
+            app:destination="@id/navigation_bookinghistory" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_receipts"
+            app:destination="@id/navigation_receipts" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_home2"
+        android:name="com.example.projectapplicationmain.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home2" >
+        <action
+            android:id="@+id/action_navigation_home2_to_navigation_bookinghistory"
+            app:destination="@id/navigation_bookinghistory" />
+        <action
+            android:id="@+id/action_navigation_home2_to_navigation_receipts"
+            app:destination="@id/navigation_receipts" />
+        <action
+            android:id="@+id/action_navigation_home2_to_navigation_carlocation"
+            app:destination="@id/navigation_carlocation" />
+        <action
+            android:id="@+id/action_navigation_home2_to_navigation_carwash"
+            app:destination="@id/navigation_carwash" />
+        <action
+            android:id="@+id/action_navigation_home2_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_chatsupport"
+        android:name="com.example.projectapplicationmain.ui.chatsupport.ChatSupportFragment"
+        android:label="@string/title_chatsupport"
+        tools:layout="@layout/fragment_chatsupport" >
+        <action
+            android:id="@+id/action_navigation_chatsupport_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.projectapplicationmain.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" >
+        <action
+            android:id="@+id/action_navigation_notifications_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_scanbarcode"
+        android:name="com.example.projectapplicationmain.ScanBarcodeFragment"
+        android:label="@string/title_scanbarcode"
+        tools:layout="@layout/fragment_scanbarcode">
+        <action
+            android:id="@+id/action_navigation_scanbarcode_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_scanbarcode_to_navigation_parking"
+            app:destination="@id/navigation_parking" />
+        <action
+            android:id="@+id/action_navigation_scanbarcode_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_parking"
+        android:name="com.example.projectapplicationmain.ParkingFragment"
+        android:label="@string/title_parking"
+        tools:layout="@layout/fragment_parking" >
+        <action
+            android:id="@+id/action_navigation_parking_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_navigation_parking_to_navigation_map"
+            app:destination="@id/navigation_map" />
+        <action
+            android:id="@+id/action_navigation_parking_to_navigation_scanbarcode"
+            app:destination="@id/navigation_scanbarcode" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="com.example.projectapplicationmain.MapFragment"
+        android:label="@string/map"
+        tools:layout="@layout/fragment_map" >
+        <action
+            android:id="@+id/action_navigation_map_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_carwash"
+        android:name="com.example.projectapplicationmain.CarWashFragment"
+        android:label="@string/carwash"
+        tools:layout="@layout/fragment_carwash" >
+        <action
+            android:id="@+id/action_navigation_carwash_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_navigation_carwash_to_navigation_home2"
+            app:destination="@id/navigation_home2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_carlocation"
+        android:name="com.example.projectapplicationmain.CarLocationFragment"
+        android:label="@string/carlocation"
+        tools:layout="@layout/fragment_carlocation" >
+        <action
+            android:id="@+id/action_navigation_carlocation_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_navigation_carlocation_to_navigation_home2"
+            app:destination="@id/navigation_home2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.projectapplicationmain.UserProfileFragment"
+        android:label="@string/userprofile"
+        tools:layout="@layout/fragment_userprofile">
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_information"
+            app:destination="@id/navigation_information" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_myvehicles"
+            app:destination="@id/navigation_myvehicles" />
+
+    </fragment>
+
+    <fragment
+    android:id="@+id/navigation_vipbook"
+    android:name="com.example.projectapplicationmain.VIPBookingFragment"
+    android:label="@string/vipbook"
+    tools:layout="@layout/fragment_vipbooking" >
+        <action
+            android:id="@+id/action_navigation_vipbook_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_vipbook_to_navigation_exisitingvipbook"
+            app:destination="@id/navigation_exisitingvipbook" />
+        <action
+            android:id="@+id/action_navigation_vipbook_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_exisitingvipbook"
+        android:name="com.example.projectapplicationmain.ExistingVIPBookingFragment"
+        android:label="@string/exisitingvipbook"
+        tools:layout="@layout/fragment_existingvipbooking" >
+        <action
+            android:id="@+id/action_navigation_exisitingvipbook_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_navigation_exisitingvipbook_to_navigation_vipbook"
+            app:destination="@id/navigation_vipbook" />
+        <action
+            android:id="@+id/action_navigation_exisitingvipbook_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_bookinghistory"
+        android:name="com.example.projectapplicationmain.BookingHistoryFragment"
+        android:label="@string/bookinghistory"
+        tools:layout="@layout/fragment_bookinghistory" >
+        <action
+            android:id="@+id/action_navigation_bookinghistory_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_bookinghistory_to_navigation_bookingdetails"
+            app:destination="@id/navigation_bookingdetails" />
+        <action
+            android:id="@+id/action_navigation_bookinghistory_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_bookingdetails"
+        android:name="com.example.projectapplicationmain.BookingdetailsFragment"
+        android:label="@string/bookingdetails"
+        tools:layout="@layout/fragment_bookingdetails" >
+        <action
+            android:id="@+id/action_navigation_bookingdetails_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_navigation_bookingdetails_to_navigation_bookinghistory"
+            app:destination="@id/navigation_bookinghistory" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_receipts"
+        android:name="com.example.projectapplicationmain.ReceiptsFragment"
+        android:label="@string/receipts"
+        tools:layout="@layout/fragment_receipts" >
+        <action
+            android:id="@+id/action_navigation_receipts_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_receipts_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_navigation_receipts_to_navigation_home2"
+            app:destination="@id/navigation_home2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_carrequest"
+        android:name="com.example.projectapplicationmain.CarRequestFragment"
+        android:label="@string/CarRequest"
+        tools:layout="@layout/fragment_carrequest" >
+        <action
+            android:id="@+id/action_navigation_carrequest_to_navigation_home2"
+            app:destination="@id/navigation_home2" />
+        <action
+            android:id="@+id/action_navigation_carrequest_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_information"
+        android:name="com.example.projectapplicationmain.InformationFragment"
+        android:label="@string/Information"
+        tools:layout="@layout/fragment_information" >
+        <action
+            android:id="@+id/action_navigation_information_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_myvehicles"
+        android:name="com.example.projectapplicationmain.VehiclesFragment"
+        android:label="@string/Myvehicles"
+        tools:layout="@layout/fragment_myvehicles" >
+
+        <action
+            android:id="@+id/action_navigation_myvehicles_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+
+</navigation>
