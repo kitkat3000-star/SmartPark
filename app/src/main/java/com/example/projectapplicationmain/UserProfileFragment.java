@@ -1,6 +1,5 @@
 package com.example.projectapplicationmain;
 
-import android.app.Fragment;
-
+import androidx.fragment.app.Fragment;
 public class UserProfileFragment extends Fragment {
 }
