@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notifications.NotificationsFragment">
+    tools:context=".ui.notifications.NotificationsFragment"
+    android:paddingTop="30dp">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -28,7 +29,7 @@
         app:layout_constraintRight_toRightOf="@id/scanbarcode"
         app:layout_constraintStart_toEndOf="@+id/scanbarcode"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintVertical_bias="0.04000002" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -43,13 +44,13 @@
         app:layout_constraintLeft_toLeftOf="@id/scanbarcode"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintVertical_bias="0.04000002" />
 
     <TextView
         android:id="@+id/scanbarcode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scan Barcode"
+        android:text="Verify License"
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,7 +66,7 @@
         android:layout_width="283dp"
         android:layout_height="63dp"
         android:layout_marginTop="11dp"
-        android:text="Please scan the QR Code displayed at the entrance screen to gain access to parking services"
+        android:text="Your License is being verified"
         android:textAlignment="center"
         android:textColor="#95989A"
         android:textSize="14dp"
@@ -96,7 +97,7 @@
         android:layout_width="280dp"
         android:layout_height="48dp"
         android:background="@drawable/bgbuttongradient"
-        android:text="SCAN"
+        android:text="verify"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
