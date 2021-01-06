@@ -67,7 +67,7 @@ public HomeFragment()
         userprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_navigation_scanbarcode_to_navigation_profile);
+                navController.navigate(R.id.action_navigation_home_to_navigation_profile);
             }
         });
 

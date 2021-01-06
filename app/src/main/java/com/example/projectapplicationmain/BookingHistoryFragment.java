@@ -34,7 +34,7 @@ public class BookingHistoryFragment extends Fragment {
         });
 
 
-        ImageView imageView = view.findViewById(R.id.imageView4);
+        ImageView imageView = view.findViewById(R.id.imageView3);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

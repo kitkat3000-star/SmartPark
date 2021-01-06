@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment"
-    android:paddingTop="30dp">
+    android:paddingTop="60dp">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -15,13 +15,14 @@
         android:src="@drawable/path_40"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/userprofile"
-        android:layout_width="20dp"
-        android:layout_height="27dp"
+        android:layout_width="19dp"
+        android:layout_height="26dp"
         android:background="@drawable/icon___more___filled"
         app:layout_constraintBottom_toTopOf="@+id/Receipts"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -43,7 +44,7 @@
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.117" />
+        app:layout_constraintVertical_bias="0.132" />
 
     <TextView
         android:id="@+id/welcome"
@@ -84,7 +85,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.0"
-        tools:src="@tools:sample/avatars" />
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="131dp"
+        android:src = "@drawable/ic_action_name" />
 
     <ImageView
         android:id="@+id/Booknow"
@@ -97,7 +100,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.289"
-        tools:src="@drawable/group_289" />
+        android:src="@drawable/group_289" />
 
     <TextView
         android:id="@+id/textView2"
@@ -124,7 +127,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.289"
-        tools:background="@drawable/icon_awesome_long_arrow_alt_right" />
+        android:background="@drawable/icon_awesome_long_arrow_alt_right" />
 
 
     <View
@@ -151,7 +154,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.489"
-        tools:src="@drawable/icon_awesome_calendar_check" />
+        android:src="@drawable/icon_awesome_calendar_check" />
 
     <TextView
         android:id="@+id/textView3"
@@ -178,7 +181,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.479"
-        tools:background="@drawable/icon_awesome_long_arrow_alt_right" />
+        android:background="@drawable/icon_awesome_long_arrow_alt_right" />
 
 
     <View
@@ -204,7 +207,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.669"
-        tools:src="@drawable/icon_awesome_history" />
+        android:src="@drawable/icon_awesome_history" />
 
     <TextView
         android:id="@+id/textView4"
@@ -232,7 +235,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.67"
-        tools:background="@drawable/icon_awesome_long_arrow_alt_right" />
+        android:background="@drawable/icon_awesome_long_arrow_alt_right" />
 
     <View
         android:layout_width="280dp"
@@ -258,7 +261,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.845"
-        tools:src="@drawable/icon_awesome_receipt" />
+        android:src="@drawable/icon_awesome_receipt" />
 
     <TextView
         android:id="@+id/textView5"
@@ -285,7 +288,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.845"
-        tools:background="@drawable/icon_awesome_long_arrow_alt_right" />
+        android:background="@drawable/icon_awesome_long_arrow_alt_right" />
 
     <View
         android:layout_width="280dp"

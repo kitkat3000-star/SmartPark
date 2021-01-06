@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,7 +26,7 @@ public class VehiclesFragment extends Fragment {
         NavController navController = Navigation.findNavController(view);
 
 
-        Button button = view.findViewById(R.id.imageView4);
+        ImageView button = view.findViewById(R.id.imageView3);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
