@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,6 +40,14 @@ public class UserProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 navController.navigate(R.id.action_navigation_profile_to_navigation_myvehicles);
+            }
+        });
+
+        ImageView back = view.findViewById(R.id.imageView3);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_navigation_profile_to_navigation_home);
             }
         });
 

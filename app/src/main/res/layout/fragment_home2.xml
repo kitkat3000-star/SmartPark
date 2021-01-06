@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment"
-    android:paddingTop="30dp">
+    android:paddingTop="60dp">
 
 
     <ImageView
@@ -17,35 +17,36 @@
         android:src="@drawable/path_40"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icon___more___filled"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/userprofile"
+        android:layout_width="19dp"
+        android:layout_height="26dp"
+        android:background="@drawable/icon___more___filled"
+        app:layout_constraintBottom_toTopOf="@+id/Receipts"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.815"
+        app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintRight_toRightOf="@id/dashboard"
         app:layout_constraintStart_toEndOf="@+id/dashboard"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.04000002" />
 
-
-        <TextView
-            android:id="@+id/dashboard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dashboard"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="0.529"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.118" />
+    <TextView
+        android:id="@+id/dashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dashboard"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.132" />
 
         <TextView
             android:id="@+id/welcome"
@@ -75,18 +76,18 @@
             app:layout_constraintTop_toTopOf="@+id/imageView2"
             app:layout_constraintVertical_bias="0.312" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="89dp"
-            android:layout_height="105dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.173"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.0"
-            tools:src="@tools:sample/avatars" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="89dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/carwashbook"
@@ -99,7 +100,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.25"
-        tools:src="@drawable/icon_material_local_car_wash" />
+        android:src="@drawable/icon_material_local_car_wash" />
 
     <TextView
         android:id="@+id/textView2"
@@ -127,7 +128,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.249"
-        tools:background="@drawable/icon_awesome_long_arrow_alt_right" />
+        android:background="@drawable/icon_awesome_long_arrow_alt_right" />
 
 
     <View
@@ -154,7 +155,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.413"
-        tools:src="@drawable/icon_awesome_search_location" />
+        android:src="@drawable/icon_awesome_search_location" />
 
     <TextView
         android:id="@+id/textView3"
@@ -181,7 +182,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.409"
-        tools:background="@drawable/icon_awesome_long_arrow_alt_right" />
+        android:background="@drawable/icon_awesome_long_arrow_alt_right" />
 
     <View
         android:layout_width="280dp"
@@ -206,7 +207,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.568"
-        tools:src="@drawable/icon_awesome_history" />
+        android:src="@drawable/icon_awesome_history" />
 
     <TextView
         android:id="@+id/textView4"
@@ -235,7 +236,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.572"
-        tools:background="@drawable/icon_awesome_long_arrow_alt_right" />
+        android:background="@drawable/icon_awesome_long_arrow_alt_right" />
 
     <View
         android:layout_width="280dp"
@@ -260,7 +261,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.74"
-        tools:src="@drawable/icon_awesome_receipt" />
+        android:src="@drawable/icon_awesome_receipt" />
 
     <TextView
         android:id="@+id/textView5"
@@ -287,7 +288,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.74"
-        tools:background="@drawable/icon_awesome_long_arrow_alt_right" />
+        android:background="@drawable/icon_awesome_long_arrow_alt_right" />
 
     <View
         android:layout_width="280dp"
@@ -312,7 +313,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.906"
-        tools:src="@drawable/icon_map_car_rental" />
+        android:src="@drawable/icon_map_car_rental" />
 
     <TextView
         android:id="@+id/textView6"
@@ -339,7 +340,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.906"
-        tools:background="@drawable/icon_awesome_long_arrow_alt_right" />
+        android:background="@drawable/icon_awesome_long_arrow_alt_right" />
 
     <View
         android:layout_width="280dp"

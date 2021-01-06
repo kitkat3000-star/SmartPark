@@ -150,6 +150,12 @@
         <action
             android:id="@+id/action_navigation_profile_to_navigation_myvehicles"
             app:destination="@id/navigation_myvehicles" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_home2"
+            app:destination="@id/navigation_home2" />
 
     </fragment>
 

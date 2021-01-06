@@ -25,27 +25,11 @@ public class MapFragment extends Fragment {
 
         NavController navController = Navigation.findNavController(view);
 
-        Button button = view.findViewById(R.id.parkingbutton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_navigation_parking_to_navigation_map);
-            }
-        });
-
-        ImageView imageView = view.findViewById(R.id.imageView3);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_navigation_parking_to_navigation_scanbarcode);
-            }
-        });
-
         ImageView userprofile = view.findViewById(R.id.userprofile);
         userprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_navigation_scanbarcode_to_navigation_profile);
+                navController.navigate(R.id.action_navigation_map_to_navigation_profile);
             }
         });
 

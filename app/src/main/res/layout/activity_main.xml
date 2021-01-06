@@ -52,7 +52,7 @@
         android:layout_width="77dp"
         android:layout_height="33dp"
         android:layout_marginBottom="84dp"
-        android:background=""
+        android:background="@null"
         android:text="Register"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

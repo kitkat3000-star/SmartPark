@@ -12,7 +12,7 @@
         android:title="@string/title_notifications" />
 
     <item
-        android:id="@+id/navigation_chat"
+        android:id="@+id/navigation_chatsupport"
         android:icon="@drawable/icon_ionic_md_chatbubbles"
         android:title="@string/title_chatsupport" />
 
