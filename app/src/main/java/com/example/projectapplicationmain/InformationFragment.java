@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,8 +33,8 @@ public class InformationFragment extends Fragment {
 //        });
 
 
-        ImageView imageView = view.findViewById(R.id.imageView3);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        Button button1 = view.findViewById(R.id.imageView4);
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navController.navigate(R.id.action_navigation_information_to_navigation_profile);

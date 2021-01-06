@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/area__display_elementsdefault__statedefault_"
         android:ems="10"
-        android:hint="email"
+        android:hint="      email"
         android:inputType="textEmailAddress"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/area__display_elementsdefault__statedefault_"
         android:ems="10"
-        android:hint="password"
+        android:hint="      password"
         android:inputType="textPassword"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -99,8 +99,10 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittextloginPass" />
+        app:layout_constraintTop_toBottomOf="@+id/edittextloginPass"
+        app:layout_constraintVertical_bias="0.87" />
 
     <CheckBox
         android:id="@+id/checkBox"

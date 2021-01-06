@@ -29,6 +29,8 @@ public class ScanBarcodeFragment extends Fragment {
 
         NavController navController = Navigation.findNavController(view);
 
+
+
         Button button = view.findViewById(R.id.scanbutton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
