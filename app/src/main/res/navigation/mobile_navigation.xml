@@ -12,9 +12,7 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_navigation_scanbarcode"
-            app:destination="@id/navigation_scanbarcode"
-            app:enterAnim="@android:anim/slide_out_right"
-            app:exitAnim="@android:anim/slide_in_left" />
+            app:destination="@id/navigation_scanbarcode" />
         <action
             android:id="@+id/action_navigation_home_to_navigation_vipbook"
             app:destination="@id/navigation_vipbook" />

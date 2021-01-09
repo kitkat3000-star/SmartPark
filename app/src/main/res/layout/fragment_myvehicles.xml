@@ -91,26 +91,26 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="License"
+        android:text="License Plate"
         android:textColor="@color/black"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintHorizontal_bias="0.189"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.044" />
 
     <TextView
         android:id="@+id/duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="332dp"
-        android:text="@null"
-        android:textColor="@color/black"
+        android:layout_marginTop="304dp"
+        android:text="H 1"
+        android:textColor="#8F000000"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.788"
+        app:layout_constraintHorizontal_bias="0.793"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -128,9 +128,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.409" />
 
-    =
-
-
     <View
         android:id="@+id/view6"
         android:layout_width="280dp"
@@ -143,14 +140,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.422" />
+        app:layout_constraintVertical_bias="0.457" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/addvehiclebutton"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="280dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="104dp"
         android:background="@drawable/bgbuttongradient"
         android:backgroundTint="@null"
         android:text="Add"
@@ -181,6 +178,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="198dp" />
+        app:layout_constraintGuide_end="571dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

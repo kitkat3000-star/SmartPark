@@ -65,10 +65,10 @@
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.194"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.069" />
 
     <Spinner
         android:id="@+id/spinner1"
@@ -85,17 +85,17 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.518" />
 
+
     <View
         android:id="@+id/view"
         android:layout_width="280dp"
         android:layout_height="0.5dp"
-        android:layout_marginBottom="464dp"
+        android:layout_marginBottom="408dp"
         android:background="#707070"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
-
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bookcarrequestbutton"

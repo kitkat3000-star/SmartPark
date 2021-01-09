@@ -80,7 +80,7 @@ public class MainActivity3 extends Activity {
                     Intent i = new Intent(MainActivity3.this, MainActivity4.class);
                     startActivity(i);
                 } else {
-                    Toast.makeText(MainActivity3.this, "Registration unsucessfull", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity3.this, "Registration unsuccessful", Toast.LENGTH_SHORT).show();
                 }
 
             }
