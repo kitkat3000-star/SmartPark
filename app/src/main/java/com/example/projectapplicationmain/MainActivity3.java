@@ -14,9 +14,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity3 extends Activity {
     EditText regName;
@@ -28,67 +32,62 @@ public class MainActivity3 extends Activity {
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     private FirebaseAuth mAuth;
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-    }
+    FirebaseFirestore FirestoreNode = FirebaseFirestore.getInstance();
+    String userID;
+    DocumentReference dREF;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
-        rootNode = FirebaseDatabase.getInstance();
-        reference = rootNode.getReference("Users");
         mAuth = FirebaseAuth.getInstance();
 
-        regName =  (EditText) findViewById(R.id.editTextName);
+        regName = (EditText) findViewById(R.id.editTextName);
         regEmail = (EditText) findViewById(R.id.editTextloginemail);
         regPass = (EditText) findViewById(R.id.edittextloginPass);
         regPhoneNo = (EditText) findViewById(R.id.editTextPhone);
-        regLicenseNo =(EditText)  findViewById(R.id.editTextLicense);
-     Signin_Btn = (Button) findViewById(R.id.SignInBtn);
+        regLicenseNo = (EditText) findViewById(R.id.editTextLicense);
+        Signin_Btn = (Button) findViewById(R.id.SignInBtn);
 
-     Signin_Btn.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
-
-             String txt_email = regEmail.getText().toString();
-             String txt_password = regPass.getText().toString();
-
-             String name = regName.getText().toString();
-             String phone_Num = regPhoneNo.getText().toString();
-             String license_Num = regLicenseNo.getText().toString();
-
-             registerUser(txt_email,txt_password);
-             User helperClass = new User (name, txt_email, txt_password, license_Num, phone_Num);
-             reference.child(license_Num).setValue(helperClass);
-
-                      }
-     });
-
-
-    }
-    private void registerUser(String email, String password) {
-        mAuth.createUserWithEmailAndPassword(email , password) .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        Signin_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                   Toast.makeText(MainActivity3.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(MainActivity3.this, MainActivity4.class);
-                    startActivity(i);
-                } else {
-                    Toast.makeText(MainActivity3.this, "Registration unsuccessful", Toast.LENGTH_SHORT).show();
-                }
+            public void onClick(View view) {
+
+                String txt_email = regEmail.getText().toString();
+                String txt_password = regPass.getText().toString();
+                String REGISTER_name = regName.getText().toString();
+                String REGISTER_phone_Num = regPhoneNo.getText().toString();
+                String REGISTER_license_Num = regLicenseNo.getText().toString();
+                mAuth.createUserWithEmailAndPassword(txt_email, txt_password)
+                        .addOnCompleteListener(MainActivity3.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(MainActivity3.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                                    userID = mAuth.getCurrentUser().getUid();
+                                    dREF = FirestoreNode.collection("users").document(userID);
+                                    Map<String, String> USERS = new HashMap<String, String>();
+                                    USERS.put("Name", REGISTER_name);
+                                    USERS.put("License_Num", REGISTER_license_Num);
+                                    USERS.put("Phone_Num", REGISTER_phone_Num);
+                                    USERS.put("Email", txt_email);
+                                    dREF.set(USERS);
+                                    Intent i = new Intent(MainActivity3.this, MainActivity4.class);
+                                    startActivity(i);
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Toast.makeText(MainActivity3.this, "Registration unsucessfull", Toast.LENGTH_SHORT).show();
+
+                                }
+
+                            }
+                        });
+
 
             }
         });
+
+
     }
-
 }
-
-
-
-
