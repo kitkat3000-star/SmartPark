@@ -32,8 +32,9 @@
     <string name="bookingdetails">bookingdetails</string>
     <string name="receipts">receipts</string>
     <string-array name="zone_array">
-        <item>University of Wollongong</item>
-        <item>Heriott Watt</item>
+        <item>Zone A</item>
+        <item>Zone B</item>
+        <item>Zone C</item>
     </string-array>
     <string name="title_activity_main5">MainActivity</string>
     <string name="CarRequest" />
