@@ -42,7 +42,7 @@ String Verified;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        OCR_License_INPUt = "AE23456";
+        OCR_License_INPUt = "Z 12345";
         NavController navController = Navigation.findNavController(view);
 
         dREF = firenode.collection("users").document(userID);
@@ -59,6 +59,7 @@ String Verified;
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (Verified.equals(OCR_License_INPUt)) {
                     Toast.makeText(getActivity(), "Verification successful", Toast.LENGTH_SHORT).show();
                     navController.navigate(R.id.action_navigation_scanbarcode_to_navigation_parking);
