@@ -38,14 +38,8 @@ import java.util.Map;
 public class ParkingFragment extends Fragment {
 
     private Spinner zonespinner;
-    String licensePlateNumber = "A 69435";
-    final int Zone_A = 5;
-    final  int Zone_B = 5;
-    final int Zone_C = 5;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     String Verified;
-    int i;
-    boolean statusCheck;
     DocumentReference dREF;
     String userID = mAuth.getCurrentUser().getUid();
 
@@ -92,14 +86,21 @@ public class ParkingFragment extends Fragment {
                     public void onClick(View v) {
                         switch (zonespinner.getSelectedItemPosition()) {
                             case 0:
-                             //Toast.makeText(getActivity(), zonespinner.getSelectedItem().toString() + " Allocated spot " , Toast.LENGTH_LONG).show();
+                                //Toast.makeText(getActivity(), zonespinner.getSelectedItem().toString() + " Allocated spot " , Toast.LENGTH_LONG).show();
                                 fillAvailableSlotZoneA();
                                 navController.navigate(R.id.action_navigation_parking_to_navigation_map);
                                 break;
                             case 1:
 //                                Toast.makeText(getActivity(), zonespinner.getSelectedItem().toString() + " Allocated spot" + fillAvailableSlotHeriott(licensePlateNumber) , Toast.LENGTH_LONG).show();
 //                                navController.navigate(R.id.action_navigation_parking_to_navigation_map);
+                                fillAvailableSlotZoneB();
+                                navController.navigate(R.id.action_navigation_parking_to_navigation_map);
                                 break;
+                            case 2:
+                                fillAvailableSlotZoneC();
+                                navController.navigate(R.id.action_navigation_parking_to_navigation_map);
+                                break;
+
 
                         }
                     }
@@ -135,33 +136,101 @@ public class ParkingFragment extends Fragment {
 
     }
 
+    //SPOT ALLOCATION FOR STANDARD ZONES
 
     public void fillAvailableSlotZoneA()
     {
         Fstore.collection("Parking Lot").document("UOWD").collection("Zone A")
                 .whereEqualTo("status", true)
+                .whereEqualTo("reservationType", "standard")
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
+                {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
+                    public void onComplete(@NonNull Task<QuerySnapshot> task)
+                    {
+                        if (task.isSuccessful())
+                        {
+                            for (QueryDocumentSnapshot document : task.getResult())
+                            {
                                 Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
                                 String parkingspot = document.getId();
                                 Fstore.collection("Parking Lot").document("UOWD").collection("Zone A").document(parkingspot)
                                         .update("status", false);
                                 Fstore.collection("Parking Lot").document("UOWD").collection("Zone A").document(parkingspot)
                                         .update("reservationId", Verified);
-
                                 break;
                             }
-                        } else {
+                        }
+                        else
+                            {
                             Log.d("ff", "Error getting documents: ", task.getException());
                         }
                     }
                 });
     }
 
+    public void fillAvailableSlotZoneB()
+    {
+        Fstore.collection("Parking Lot").document("UOWD").collection("Zone B")
+                .whereEqualTo("status", true)
+                .whereEqualTo("reservationType", "standard")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
+                {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task)
+                    {
+                        if (task.isSuccessful())
+                        {
+                            for (QueryDocumentSnapshot document : task.getResult())
+                            {
+                                Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
+                                String parkingspot = document.getId();
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingspot)
+                                        .update("status", false);
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingspot)
+                                        .update("reservationId", Verified);
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            Log.d("ff", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
 
-
+    public void fillAvailableSlotZoneC()
+    {
+        Fstore.collection("Parking Lot").document("UOWD").collection("Zone C")
+                .whereEqualTo("status", true)
+                .whereEqualTo("reservationType", "standard")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
+                {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task)
+                    {
+                        if (task.isSuccessful())
+                        {
+                            for (QueryDocumentSnapshot document : task.getResult())
+                            {
+                                Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
+                                String parkingspot = document.getId();
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingspot)
+                                        .update("status", false);
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingspot)
+                                        .update("reservationId", Verified);
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            Log.d("ff", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
 }
