@@ -17,23 +17,15 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.Source;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 public class ParkingFragment extends Fragment {
 
@@ -62,11 +54,11 @@ public class ParkingFragment extends Fragment {
 
         //LOGGED-IN USER LICENSE PLATE EXTRACTION
 
-        dREF = Fstore.collection("users").document(userID);
+        dREF = Fstore.collection("Users").document(userID);
         dREF.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                Verified = value.getString("License_Num");
+                Verified = value.getString("licensePlate");
             }
         });
 
