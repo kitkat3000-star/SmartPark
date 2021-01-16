@@ -71,9 +71,9 @@
 
     <fragment
         android:id="@+id/navigation_scanbarcode"
-        android:name="com.example.projectapplicationmain.ui.home.ScanBarcodeFragment"
-        android:label="@string/title_scanbarcode"
-        tools:layout="@layout/fragment_scanbarcode">
+        android:name="com.example.projectapplicationmain.VerifyUserFragment"
+        android:label="@string/title_verifyuser"
+        tools:layout="@layout/fragment_verifyuser">
         <action
             android:id="@+id/action_navigation_scanbarcode_to_navigation_home"
             app:destination="@id/navigation_home" />
