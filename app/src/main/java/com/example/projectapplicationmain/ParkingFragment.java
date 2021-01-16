@@ -17,32 +17,27 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.Source;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.Objects;
 
 public class ParkingFragment extends Fragment {
 
     private Spinner zonespinner;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    String Verified;
+    String licensePlateNumber;
     DocumentReference dREF;
-    String userID = mAuth.getCurrentUser().getUid();
-    String valetId;
+    String userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+    String valetId = null;
+
 
 
     FirebaseFirestore Fstore = FirebaseFirestore.getInstance();
@@ -68,7 +63,8 @@ public class ParkingFragment extends Fragment {
         dREF.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                Verified = value.getString("License_Num");
+                assert value != null;
+                licensePlateNumber = value.getString("License_Num");
             }
         });
 
@@ -163,6 +159,7 @@ public class ParkingFragment extends Fragment {
 
     }
 
+
     //SPOT ALLOCATION FOR STANDARD ZONES
 
     public void fillAvailableSlotZoneA_Standard()
@@ -181,11 +178,11 @@ public class ParkingFragment extends Fragment {
                             for (QueryDocumentSnapshot document : task.getResult())
                             {
                                 Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
-                                String parkingspot = document.getId();
-                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone A").document(parkingspot)
+                                String parkingSpot = document.getId();
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone A").document(parkingSpot)
                                         .update("status", false);
-                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone A").document(parkingspot)
-                                        .update("reservationId", Verified);
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone A").document(parkingSpot)
+                                        .update("reservationId", licensePlateNumber);
                                 break;
                             }
                         }
@@ -213,11 +210,11 @@ public class ParkingFragment extends Fragment {
                             for (QueryDocumentSnapshot document : task.getResult())
                             {
                                 Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
-                                String parkingspot = document.getId();
-                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingspot)
+                                String parkingSpot = document.getId();
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingSpot)
                                         .update("status", false);
-                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingspot)
-                                        .update("reservationId", Verified);
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingSpot)
+                                        .update("reservationId", licensePlateNumber);
                                 break;
                             }
                         }
@@ -245,11 +242,11 @@ public class ParkingFragment extends Fragment {
                             for (QueryDocumentSnapshot document : task.getResult())
                             {
                                 Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
-                                String parkingspot = document.getId();
-                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingspot)
+                                String parkingSpot = document.getId();
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingSpot)
                                         .update("status", false);
-                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingspot)
-                                        .update("reservationId", Verified);
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingSpot)
+                                        .update("reservationId", licensePlateNumber);
                                 break;
                             }
                         }
@@ -265,6 +262,8 @@ public class ParkingFragment extends Fragment {
 
     public void fillAvailableSlotZoneA_Valet()
     {
+        getAvailableValetId();
+
         Fstore.collection("Parking Lot").document("UOWD").collection("Zone A")
                 .whereEqualTo("status", true)
                 .whereEqualTo("reservationType", "valet")
@@ -284,54 +283,32 @@ public class ParkingFragment extends Fragment {
                                 Fstore.collection("Parking Lot").document("UOWD").collection("Zone A").document(parkingSpot)
                                         .update("status", false);
                                 Fstore.collection("Parking Lot").document("UOWD").collection("Zone A").document(parkingSpot)
-                                        .update("reservationId", Verified);
+                                        .update("reservationId", licensePlateNumber);
 
-                                Fstore.collection("Valet")
-                                        .whereEqualTo("status", "available")
-                                        .get()
-                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
-                                        {
-                                            @Override
-                                            public void onComplete(@NonNull Task<QuerySnapshot> task)
-                                            {
-                                                if (task.isSuccessful())
-                                                {
-                                                    for (QueryDocumentSnapshot document : task.getResult())
-                                                    {
-
-                                                        Toast.makeText(getActivity(), "Valet id " + document.getId(),Toast.LENGTH_SHORT).show();
-                                                        String valetId = document.getId();
-
-                                                        Fstore.collection("Valet").document(valetId)
-                                                                .update("assignedPlate", Verified);
-                                                        Fstore.collection("Valet").document(valetId)
-                                                                .update("assignedSpot", parkingSpot);
-                                                        Fstore.collection("Valet").document(valetId)
-                                                                .update("status", "unavailable");
-                                                        break;
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    Log.d("Error", "Valet Unavailable");
-                                                }
-                                            }
-                                        });
-
+                                //UPDATING FIRST AVAILABLE VALET WITH LICENSE PLATE AND ASSIGNED SPOT
+                                Fstore.collection("Valet").document(valetId)
+                                        .update("assignedPlate", licensePlateNumber);
+                                Fstore.collection("Valet").document(valetId)
+                                        .update("assignedSpot", parkingSpot);
+                                Fstore.collection("Valet").document(valetId)
+                                        .update("status", "unavailable");
 
                                 break;
                             }
                         }
                         else
                         {
-                            Log.d("Error", "Error getting documents: ", task.getException());
+                            Log.d("Error", "No spots available");
                         }
                     }
                 });
+        valetId = null;
     }
 
     public void fillAvailableSlotZoneB_Valet()
     {
+        getAvailableValetId();
+
         Fstore.collection("Parking Lot").document("UOWD").collection("Zone B")
                 .whereEqualTo("status", true)
                 .whereEqualTo("reservationType", "valet")
@@ -346,20 +323,31 @@ public class ParkingFragment extends Fragment {
                             for (QueryDocumentSnapshot document : task.getResult())
                             {
                                 Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
-                                String parkingspot = document.getId();
-                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingspot)
+                                String parkingSpot = document.getId();
+
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingSpot)
                                         .update("status", false);
-                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingspot)
-                                        .update("reservationId", Verified);
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingSpot)
+                                        .update("reservationId", licensePlateNumber);
+
+                                //UPDATING FIRST AVAILABLE VALET WITH LICENSE PLATE AND ASSIGNED SPOT
+                                Fstore.collection("Valet").document(valetId)
+                                        .update("assignedPlate", licensePlateNumber);
+                                Fstore.collection("Valet").document(valetId)
+                                        .update("assignedSpot", parkingSpot);
+                                Fstore.collection("Valet").document(valetId)
+                                        .update("status", "unavailable");
+
                                 break;
                             }
                         }
                         else
                         {
-                            Log.d("Error", "Error getting documents: ", task.getException());
+                            Log.d("Error", "No spots available");
                         }
                     }
                 });
+        valetId = null;
     }
 
     public void fillAvailableSlotZoneC_Valet()
@@ -378,47 +366,59 @@ public class ParkingFragment extends Fragment {
                             for (QueryDocumentSnapshot document : task.getResult())
                             {
                                 Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
-                                String parkingspot = document.getId();
-                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingspot)
+                                String parkingSpot = document.getId();
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingSpot)
                                         .update("status", false);
-                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingspot)
-                                        .update("reservationId", Verified);
+                                Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingSpot)
+                                        .update("reservationId", licensePlateNumber);
+
+                                //UPDATING FIRST AVAILABLE VALET WITH LICENSE PLATE AND ASSIGNED SPOT
+                                Fstore.collection("Valet").document(valetId)
+                                        .update("assignedPlate", licensePlateNumber);
+                                Fstore.collection("Valet").document(valetId)
+                                        .update("assignedSpot", parkingSpot);
+                                Fstore.collection("Valet").document(valetId)
+                                        .update("status", "unavailable");
+
                                 break;
                             }
                         }
                         else
                         {
-                            Log.d("Error", "Error getting documents: ", task.getException());
+                            Log.d("Error", "No spots available");
+                        }
+                    }
+                });
+        valetId = null;
+    }
+
+    //GETTING FIRST AVAILABLE VALET
+
+    public void getAvailableValetId()
+    {
+        Fstore.collection("Valet")
+                .whereEqualTo("status", "available")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
+                {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task)
+                    {
+                        if (task.isSuccessful())
+                        {
+                            for (QueryDocumentSnapshot document : task.getResult())
+                            {
+                                valetId = document.getId();
+                                Toast.makeText(getActivity(), "Valet Assigned " + valetId, Toast.LENGTH_SHORT).show();
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            Log.d("Error", "Valet Unavailable");
                         }
                     }
                 });
     }
 
-//    public String getAvailableValetId()
-//    {
-//        Fstore.collection("Valet")
-//                .whereEqualTo("status", "available")
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
-//                {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task)
-//                    {
-//                        if (task.isSuccessful())
-//                        {
-//                            for (QueryDocumentSnapshot document : task.getResult())
-//                            {
-//                                valetId = document.getId();
-//                                break;
-//                            }
-//                        }
-//                        else
-//                        {
-//                            Log.d("Error", "Valet Unavailable");
-//                        }
-//                    }
-//                });
-////        Log.d("ValetId", "ID: " + valetId);
-//        return valetId;
-//    }
 }

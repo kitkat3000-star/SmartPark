@@ -66,7 +66,7 @@ public class RegisterActivity extends Activity {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                     userID = mAuth.getCurrentUser().getUid();
-                                    dREF = FirestoreNode.collection("users").document(userID);
+                                    dREF = FirestoreNode.collection("Users").document(userID);
                                     Map<String, String> USERS = new HashMap<String, String>();
                                     USERS.put("email", txt_email);
                                     USERS.put("licensePlate", REGISTER_license_Num);

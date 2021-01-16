@@ -22,11 +22,13 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.util.Objects;
+
 public class VerifyUserFragment extends Fragment {
 
     FirebaseFirestore firenode = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    String userID =  mAuth.getCurrentUser().getUid();
+    String userID =  Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
     DocumentReference dREF;
     //   docREF = firenode.collection("users").document(userID);
     String OCR_License_INPUt;
@@ -42,14 +44,14 @@ public class VerifyUserFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        OCR_License_INPUt = "Z 12345";
+        OCR_License_INPUt = "H 45698";
         NavController navController = Navigation.findNavController(view);
 
-        dREF = firenode.collection("users").document(userID);
+        dREF = firenode.collection("Users").document(userID);
         dREF.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                Verified =  value.getString("License_Num");
+                Verified =  value.getString("licensePlate");
             }
         });
 
