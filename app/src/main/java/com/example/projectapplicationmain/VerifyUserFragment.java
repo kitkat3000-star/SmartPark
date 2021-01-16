@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.example.projectapplicationmain.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -27,9 +28,9 @@ public class VerifyUserFragment extends Fragment {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     String userID =  mAuth.getCurrentUser().getUid();
     DocumentReference dREF;
-//   docREF = firenode.collection("users").document(userID);
-String OCR_License_INPUt;
-String Verified;
+    //   docREF = firenode.collection("users").document(userID);
+    String OCR_License_INPUt;
+    String Verified;
 
 
 
@@ -41,14 +42,14 @@ String Verified;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        OCR_License_INPUt = "W 223344";
+        OCR_License_INPUt = "Z 12345";
         NavController navController = Navigation.findNavController(view);
 
-        dREF = firenode.collection("Users").document(userID);
+        dREF = firenode.collection("users").document(userID);
         dREF.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                Verified =  value.getString("licensePlate");
+                Verified =  value.getString("License_Num");
             }
         });
 
