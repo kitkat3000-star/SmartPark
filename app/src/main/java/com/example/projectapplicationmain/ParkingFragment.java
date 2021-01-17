@@ -59,12 +59,12 @@ public class ParkingFragment extends Fragment {
 
         //LOGGED-IN USER LICENSE PLATE EXTRACTION
 
-        dREF = Fstore.collection("users").document(userID);
+        dREF = Fstore.collection("Users").document(userID);
         dREF.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 assert value != null;
-                licensePlateNumber = value.getString("License_Num");
+                licensePlateNumber = value.getString("licensePlate");
             }
         });
 
@@ -302,7 +302,6 @@ public class ParkingFragment extends Fragment {
                         }
                     }
                 });
-        valetId = null;
     }
 
     public void fillAvailableSlotZoneB_Valet()
@@ -347,7 +346,6 @@ public class ParkingFragment extends Fragment {
                         }
                     }
                 });
-        valetId = null;
     }
 
     public void fillAvailableSlotZoneC_Valet()
@@ -389,7 +387,6 @@ public class ParkingFragment extends Fragment {
                         }
                     }
                 });
-        valetId = null;
     }
 
     //GETTING FIRST AVAILABLE VALET

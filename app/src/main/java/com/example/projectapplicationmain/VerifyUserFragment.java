@@ -61,9 +61,13 @@ public class VerifyUserFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (verifiedLicenseNum.equals(ocrInput1) || verifiedLicenseNum.equals(ocrInput2)) {
+                if (verifiedLicenseNum.equals(ocrInput1)) {
                     Toast.makeText(getActivity(), "Verification successful", Toast.LENGTH_SHORT).show();
                     navController.navigate(R.id.action_navigation_scanbarcode_to_navigation_parking);
+                } else if (verifiedLicenseNum.equals(ocrInput2)){
+                    Toast.makeText(getActivity(), "Verification successful", Toast.LENGTH_SHORT).show();
+                    navController.navigate(R.id.action_navigation_scanbarcode_to_navigation_parking);
+
                 } else {
                     Toast.makeText(getActivity(), "Registration unsuccessful", Toast.LENGTH_SHORT).show();
                 }
