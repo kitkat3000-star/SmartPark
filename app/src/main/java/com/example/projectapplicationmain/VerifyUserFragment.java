@@ -30,9 +30,8 @@ public class VerifyUserFragment extends Fragment {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     String userID =  Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
     DocumentReference dREF;
-    //   docREF = firenode.collection("users").document(userID);
-    String OCR_License_INPUt;
-    String Verified;
+    String ocrInput1 , ocrInput2;
+    String verifiedLicenseNum;
 
 
 
@@ -44,17 +43,17 @@ public class VerifyUserFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        OCR_License_INPUt = "H 45698";
+        ocrInput1 = "H 45698";
+        ocrInput2 = "Z 16353";
         NavController navController = Navigation.findNavController(view);
 
         dREF = firenode.collection("Users").document(userID);
         dREF.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                Verified =  value.getString("licensePlate");
+                verifiedLicenseNum = value.getString("licensePlate");
             }
         });
-
 
 
         Button button = view.findViewById(R.id.scanbutton);
@@ -62,7 +61,7 @@ public class VerifyUserFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (Verified.equals(OCR_License_INPUt)) {
+                if (verifiedLicenseNum.equals(ocrInput1) || verifiedLicenseNum.equals(ocrInput2)) {
                     Toast.makeText(getActivity(), "Verification successful", Toast.LENGTH_SHORT).show();
                     navController.navigate(R.id.action_navigation_scanbarcode_to_navigation_parking);
                 } else {
@@ -88,7 +87,6 @@ public class VerifyUserFragment extends Fragment {
                 navController.navigate(R.id.action_navigation_scanbarcode_to_navigation_profile);
             }
         });
-
 
     }
 }
