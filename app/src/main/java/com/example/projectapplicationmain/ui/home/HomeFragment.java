@@ -21,9 +21,6 @@ public class HomeFragment extends Fragment {
        return inflater.inflate(R.layout.fragment_home,container,false);
 }
 
-public HomeFragment()
-{}
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -35,7 +32,7 @@ public HomeFragment()
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_navigation_home_to_navigation_scanbarcode);
+                navController.navigate(R.id.action_navigation_home_to_navigation_verifyUser);
             }
         });
 

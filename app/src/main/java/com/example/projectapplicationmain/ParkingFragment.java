@@ -145,7 +145,7 @@ public class ParkingFragment extends Fragment {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_navigation_parking_to_navigation_scanbarcode);
+                navController.navigate(R.id.action_navigation_parking_to_navigation_verifyUser);
             }
         });
 
