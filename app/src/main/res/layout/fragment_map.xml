@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:paddingTop="60dp">
 
     <ImageView
@@ -26,7 +26,7 @@
         android:background="@drawable/icon___more___filled"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintRight_toRightOf="@id/map"
+        app:layout_constraintRight_toRightOf="@+id/map"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.769" />
 
@@ -56,6 +56,13 @@
         app:layout_constraintTop_toTopOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.129" />
 
+    <com.arubanetworks.meridian.maps.MapView
+        android:id="@+id/demo_mapview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/mr_map"
+        android:importantForAccessibility="yes"
+        tools:layout_editor_absoluteY="60dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -69,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="341dp" />
+        app:layout_constraintGuide_begin="343dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"

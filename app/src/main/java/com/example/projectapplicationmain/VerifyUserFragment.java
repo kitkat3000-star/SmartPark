@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.example.projectapplicationmain.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -30,9 +29,12 @@ public class VerifyUserFragment extends Fragment {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     String userID =  Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
     DocumentReference dREF;
-    String ocrInput1 , ocrInput2;
-    String verifiedLicenseNum;
+    String ocrInput1 = "H 45698", ocrInput2;
+    String verifiedLicenseNum = "H 45698";
 
+// lsn use this ueer
+    //usertest1@test.com
+   // password
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,

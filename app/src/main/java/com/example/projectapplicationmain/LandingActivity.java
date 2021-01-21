@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.arubanetworks.meridian.Meridian;
+import com.arubanetworks.meridian.editor.EditorKey;
 
 public class LandingActivity extends Activity {
 
-    String StringToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0IjoxNjEwOTk0NTc5LCJ2YWx1ZSI6ImE4YTliNzYzNGJmMWE5ZDMxMzBiMzQ2YjM5OGVmOGRlNTk4ZWNkYTkifQ.y3Kng8S8V9_EWM-48CiWwjDitv-wBfvFmpx-GlZ0adY";
-
+    String StringToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsIjo1NjU2MDkwNTExNTQwMjI0LCJ0IjoxNjEwOTIzNzAwfQ.5JyHjp7fJm530YrOHjsur7WQa0W3dWN4aaXq-zIpO94";
+public static final EditorKey appKEY =  EditorKey.forApp("5656090511540224");
+public static final  EditorKey mapKEY = EditorKey.forMap("6487331234250752", LandingActivity.appKEY.getId());
 
     Button LoginBtn , RegisterBtn;
     @Override
@@ -20,6 +22,7 @@ public class LandingActivity extends Activity {
         setContentView(R.layout.activity_landing);
 
       Meridian.configure(this, StringToken);
+        Meridian.getShared().showMaps();
 
         LoginBtn = findViewById(R.id.frontlogin);
         RegisterBtn = findViewById(R.id.register_btn);
