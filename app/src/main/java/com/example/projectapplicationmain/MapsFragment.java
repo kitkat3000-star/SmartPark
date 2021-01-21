@@ -1,5 +1,6 @@
 package com.example.projectapplicationmain;
 
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,13 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.arubanetworks.meridian.location.LocationRequest;
+import com.arubanetworks.meridian.location.MeridianLocation;
+import com.arubanetworks.meridian.location.MeridianOrientation;
 import com.arubanetworks.meridian.maps.MapOptions;
 import com.arubanetworks.meridian.maps.MapView;
 import com.arubanetworks.meridian.maps.directions.Directions;
 
 
 
-public class MapsFragment extends Fragment  {
+public class MapsFragment extends Fragment  implements MapView.MapEventListener {
 
     private MapView mapView;
     private static final String PENDING_DESTINATION_KEY = "meridianSamples.PendingDestinationKey";
@@ -44,6 +47,10 @@ public class MapsFragment extends Fragment  {
 
 
         mapView.setMapKey(LandingActivity.mapKEY);
+        // If you want to handle MapView events
+        mapView.setMapEventListener(this);
+
+        // If you want to handle directions events
 
 //        mapView.setMapEventListener(this);
 //        mapView.setDirectionsEventListener(this);
@@ -84,6 +91,50 @@ public class MapsFragment extends Fragment  {
         mapView.onDestroy();
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
 
+    }
+
+    @Override
+    public void onMapLoadStart() {
+
+    }
+
+    @Override
+    public void onMapLoadFinish() {
+
+    }
+
+    @Override
+    public void onPlacemarksLoadFinish() {
+
+    }
+
+    @Override
+    public void onMapRenderFinish() {
+
+    }
+
+    @Override
+    public void onMapLoadFail(Throwable throwable) {
+
+    }
+
+    @Override
+    public void onMapTransformChange(Matrix matrix) {
+
+    }
+
+    @Override
+    public void onLocationUpdated(MeridianLocation meridianLocation) {
+
+    }
+
+    @Override
+    public void onOrientationUpdated(MeridianOrientation meridianOrientation) {
+
+    }
 }
 
