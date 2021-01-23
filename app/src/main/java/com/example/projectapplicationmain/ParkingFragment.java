@@ -1,5 +1,6 @@
 package com.example.projectapplicationmain;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -115,7 +116,11 @@ public class ParkingFragment extends Fragment {
                         {
                             case 0:
                                 fillAvailableSlotZoneA_Standard();
-                                navController.navigate(R.id.action_navigation_parking_to_navigation_map);
+
+                               // nav from fragment to activity to display map
+                                Intent i = new Intent(getActivity(), NavActivity.class);
+                                startActivity(i);
+                               // navController.navigate(R.id.action_navigation_parking_to_navigation_map);
                                 break;
                             case 1:
                                 fillAvailableSlotZoneB_Standard();

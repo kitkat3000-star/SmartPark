@@ -16,6 +16,7 @@ public class LoginActivity extends Activity {
     EditText LOG_username, LOG_password;
     Button SigninBtn;
     FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +50,8 @@ public class LoginActivity extends Activity {
             }
         });
     }
+
+
 
 
 
