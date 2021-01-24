@@ -18,12 +18,10 @@
         <activity android:name=".MapActivityTest" />
         <activity
             android:name=".DashboardActivity"
-            android:label="@string/title_activity_main4" />
+            android:label="@string/title_activity_main4"/>
         <activity android:name=".RegisterActivity" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivity"
+            android:noHistory="true"/>
         <activity android:name=".LandingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
