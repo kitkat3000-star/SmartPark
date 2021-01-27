@@ -66,7 +66,7 @@
                     licensePlateNumber = value.getString("licensePlate");
                 }
             });
-
+//
     //VALET PARKING OPTION SELECTION
 
             Button button1 = view.findViewById(R.id.yesvalet);
