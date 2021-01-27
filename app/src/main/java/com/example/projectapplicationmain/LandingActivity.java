@@ -22,6 +22,7 @@ public class LandingActivity extends Activity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
         Meridian.configure(LandingActivity.this, StringToken);
+      //  Meridian.getShared().setForceSimulatedLocation(true);
         LoginBtn = findViewById(R.id.frontlogin);
         RegisterBtn = findViewById(R.id.register_btn);
 

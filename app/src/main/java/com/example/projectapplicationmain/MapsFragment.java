@@ -1,4 +1,5 @@
 package com.example.projectapplicationmain;
+
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
@@ -10,12 +11,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.arubanetworks.meridian.editor.Placemark;
 import com.arubanetworks.meridian.location.LocationRequest;
@@ -41,13 +47,14 @@ public class MapsFragment extends Fragment implements MapView.DirectionsEventLis
     private static final int SOURCE_REQUEST_CODE = "meridianSamples.source_request".hashCode() & 0xFF;
     private Directions directions;
     private LocationRequest locationRequest;
+ //   public static final EditorKey placemark = EditorKey.forPlacemark("6487331234250752_4725445002133504", LandingActivity.mapKey);
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View layout = inflater.inflate(R.layout.fragment_map, container, false);
         //   View layout = inflater.inflate(R.layout.fragment_map, container, false);
         if (savedInstanceState == null) {
-            if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 String[] permissions = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
                 if (Build.VERSION.SDK_INT == Build.VERSION_CODES.Q) {
                     permissions = new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_BACKGROUND_LOCATION};
@@ -56,34 +63,38 @@ public class MapsFragment extends Fragment implements MapView.DirectionsEventLis
             }
         }
 
-        mapView = layout.findViewById(R.id.demo_mapview);
 
-        mapView.setAppKey(LandingActivity.appKey);
+            mapView = layout.findViewById(R.id.demo_mapview);
 
-        // If you want to handle MapView events
-        mapView.setMapEventListener(this);
+            mapView.setAppKey(LandingActivity.appKey);
 
-        // If you want to handle directions events
-        mapView.setDirectionsEventListener(this);
+            // If you want to handle MapView events
+            mapView.setMapEventListener(this);
 
-
-        // If you want to handle marker events
-        mapView.setMarkerEventListener(this);
-
-        // Set map options if desired
-        MapOptions mapOptions = mapView.getOptions();
-        mapOptions.HIDE_MAP_LABEL = true;
-        mapView.setOptions(mapOptions);
-
-        // Set which map to load
-        // It is recommended to do this after setting the map options
-        mapView.setMapKey(LandingActivity.mapKey);
+            // If you want to handle directions events
+            mapView.setDirectionsEventListener(this);
 
 
-        return layout;
-    }
+            // If you want to handle marker events
+            mapView.setMarkerEventListener(this);
 
-    @Override
+            // Set map options if desired
+            MapOptions mapOptions = mapView.getOptions();
+            mapOptions.HIDE_MAP_LABEL = true;
+            mapView.setOptions(mapOptions);
+
+            // Set which map to load
+            // It is recommended to do this after setting the map options
+            mapView.setMapKey(LandingActivity.mapKey);
+
+
+            return layout;
+        }
+
+
+
+
+        @Override
     public void onPause() {
         super.onPause();
         mapView.onPause();
@@ -120,9 +131,11 @@ public class MapsFragment extends Fragment implements MapView.DirectionsEventLis
     @Override public void onDirectionsReroute() { }
     @Override public boolean onDirectionsClick(Marker marker) {
         if (getActivity() != null) {
+           // EditorKey p = EditorKey.forPlacemark("6487331234250752_4725445002133504", LandingActivity.mapKey);
             Placemark p = mapView.getAssociatedPlacemark(marker);
             if (p != null) {
-                startDirections(DirectionsDestination.forPlacemarkKey(p.getKey()));
+               startDirections(DirectionsDestination.forPlacemarkKey(p.getKey()));
+              //  startDirections(DirectionsDestination.forPlacemarkKey(p));
             } else {
                 new AlertDialog.Builder(getActivity())
                         .setMessage("Directions only implemented for placemarks.")
@@ -254,6 +267,7 @@ public class MapsFragment extends Fragment implements MapView.DirectionsEventLis
         directions.calculate();
     }
 
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == SOURCE_REQUEST_CODE) {
@@ -292,6 +306,29 @@ public class MapsFragment extends Fragment implements MapView.DirectionsEventLis
 
     }
 
+    @Override
+    public void onViewCreated(@NonNull android.view.View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
+        NavController navController = Navigation.findNavController(view);
+
+        Button nextdashboard = view.findViewById(R.id.nextdashboard);
+        nextdashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.action_navigation_map_to_navigation_home2);
+            }
+        });
+
+        ImageView userprofile = view.findViewById(R.id.userprofile);
+        userprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_navigation_map_to_navigation_profile);
+            }
+        });
+
+
+    }
 
 }
