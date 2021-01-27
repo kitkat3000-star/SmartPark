@@ -14,8 +14,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -29,12 +27,13 @@ public class RegisterActivity extends Activity {
     EditText regPhoneNo;
     EditText regLicenseNo;
     Button Signin_Btn;
-    FirebaseDatabase rootNode;
-    DatabaseReference reference;
+    Boolean enteredParking, exitedParking, parkedinSpot;
+
     private FirebaseAuth mAuth;
     FirebaseFirestore FirestoreNode = FirebaseFirestore.getInstance();
     String userID;
     DocumentReference dREF;
+
 
 
     @Override
@@ -59,6 +58,11 @@ public class RegisterActivity extends Activity {
                 String REGISTER_name = regName.getText().toString();
                 String REGISTER_phone_Num = regPhoneNo.getText().toString();
                 String REGISTER_license_Num = regLicenseNo.getText().toString();
+/* Bools to add the ocr input details to the user record*/
+                enteredParking = false;
+                exitedParking = false;
+                parkedinSpot = false;
+
                 mAuth.createUserWithEmailAndPassword(txt_email, txt_password)
                         .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -72,7 +76,14 @@ public class RegisterActivity extends Activity {
                                     USERS.put("licensePlate", REGISTER_license_Num);
                                     USERS.put("name", REGISTER_name);
                                     USERS.put("phoneNumber", REGISTER_phone_Num);
+
+
                                     dREF.set(USERS);
+                                    dREF.update("enteredParkingLot",enteredParking,"leftParkingLot",exitedParking,"parked", parkedinSpot);
+
+
+
+
                                     Intent i = new Intent(RegisterActivity.this, DashboardActivity.class);
                                     startActivity(i);
                                 } else {

@@ -35,6 +35,7 @@
         <item>Zone A</item>
         <item>Zone B</item>
         <item>Zone C</item>
+        <item>ZOne D</item>
     </string-array>
     <string name="title_activity_main5">MainActivity</string>
     <string name="CarRequest" />
