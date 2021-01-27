@@ -1,6 +1,7 @@
 package com.example.projectapplicationmain;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.NavController;
@@ -16,6 +17,8 @@ public class DashboardActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -25,9 +28,25 @@ public class DashboardActivity extends FragmentActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+      // Button logoutButton = (Button) findViewById(R.id.userLogout);
+//       logoutButton.setOnClickListener(new View.OnClickListener() {
+//           @Override
+//           public void onClick(View view) {
+//               mAuth.signOut();
+//               //   FirebaseUser currentUser = mAuth.getCurrentUser();
+//               Intent i = new Intent(DashboardActivity.this, LoginActivity.class);
+//               startActivity(i);
+//
+//           }
+//       });
     }
-
     private void setupActionBarWithNavController(DashboardActivity dashboardActivity, NavController navController, AppBarConfiguration appBarConfiguration) {
     }
 
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed();
+        Toast.makeText(DashboardActivity.this,"There is no back action",Toast.LENGTH_LONG).show();
+        return;
+    }
 }

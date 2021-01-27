@@ -54,7 +54,7 @@
         android:layout_marginBottom="84dp"
         android:background="@null"
         android:text="Register"
-        android:textColor="@color/white"
+        android:textColor="@color/mr_callout_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"

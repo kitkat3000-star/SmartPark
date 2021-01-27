@@ -16,6 +16,7 @@ public class LoginActivity extends Activity {
     EditText LOG_username, LOG_password;
     Button SigninBtn;
     FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,15 @@ public class LoginActivity extends Activity {
 
                 String userEnteredUsername = LOG_username.getText().toString();
                 String userEnteredPassword = LOG_password.getText().toString();
+                Button NewUser = (Button) findViewById(R.id.CreateAccBtn);
+
+                NewUser.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
+                        startActivity(i);
+                    }
+                });
 
                 mAuth.signInWithEmailAndPassword(userEnteredUsername,userEnteredPassword).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
@@ -49,6 +59,8 @@ public class LoginActivity extends Activity {
             }
         });
     }
+
+
 
 
 
