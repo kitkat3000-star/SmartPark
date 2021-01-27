@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.notifications.NotificationsFragment"
-    android:paddingTop="60dp">
+    android:paddingTop="60dp"
+    android:background="#D1D0CE">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -46,37 +47,27 @@
 
 
     <TextView
-        android:layout_width="206dp"
-        android:layout_height="72dp"
-        android:layout_marginBottom="476dp"
-        android:text=" "
+        android:layout_width="242dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="456dp"
+        android:text="Your Parking is confirmed     at A1!"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintHorizontal_bias="0.372"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <View
         android:layout_width="280dp"
         android:layout_height="0.5dp"
-        android:layout_marginTop="120dp"
-        android:background="#707070"
+        android:layout_marginTop="128dp"
+        android:background="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/viewnotification"
-        android:layout_width="49dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.806"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.047"
-        android:background="@drawable/icon_awesome_long_arrow_alt_right" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

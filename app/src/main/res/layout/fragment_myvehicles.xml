@@ -105,14 +105,14 @@
         android:id="@+id/duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="304dp"
+        android:layout_marginBottom="20dp"
         android:text="H 1"
         android:textColor="#8F000000"
         android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/view6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.793"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.782"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView15"
@@ -142,22 +142,22 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.457" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/addvehiclebutton"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="104dp"
-        android:background="@drawable/bgbuttongradient"
-        android:backgroundTint="@null"
-        android:text="Add"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.465"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.582" />
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/addvehiclebutton"-->
+<!--        style="@style/Widget.AppCompat.Button.Borderless.Colored"-->
+<!--        android:layout_width="280dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_marginBottom="104dp"-->
+<!--        android:background="@drawable/bgbuttongradient"-->
+<!--        android:backgroundTint="@null"-->
+<!--        android:text="Add"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.465"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView9"-->
+<!--        app:layout_constraintVertical_bias="0.582" />-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

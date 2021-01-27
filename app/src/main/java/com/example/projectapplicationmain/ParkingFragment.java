@@ -223,7 +223,7 @@
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingSpot)
                                             .update("reservationId", licensePlateNumber);
                                     break;
-                                }
+                              }
                             }
                             else
                             {

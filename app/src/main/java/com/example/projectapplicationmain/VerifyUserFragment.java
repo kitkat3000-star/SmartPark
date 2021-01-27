@@ -49,7 +49,7 @@
                 @Override
                 public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                     // Only works if you have ocr input
-                    verifiedUser = value.getBoolean("enteredParking");
+                    verifiedUser = true; //value.getBoolean("enteredParking");
                 }
             });
 

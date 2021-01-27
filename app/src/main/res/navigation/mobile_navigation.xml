@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/navigation_home2"
-        android:name="com.example.projectapplicationmain.ui.home.HomeFragment"
+        android:name="com.example.projectapplicationmain.Home2Fragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home2" >
         <action
@@ -47,6 +47,9 @@
         <action
             android:id="@+id/action_navigation_home2_to_navigation_profile"
             app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_navigation_home2_to_navigation_carrequest"
+            app:destination="@id/navigation_carrequest" />
     </fragment>
 
     <fragment
@@ -109,6 +112,9 @@
         <action
             android:id="@+id/action_navigation_map_to_navigation_profile"
             app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_navigation_map_to_navigation_home2"
+            app:destination="@id/navigation_home2" />
     </fragment>
 
     <fragment
