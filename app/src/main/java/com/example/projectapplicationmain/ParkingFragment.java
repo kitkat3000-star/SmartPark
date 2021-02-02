@@ -45,7 +45,7 @@
                                  ViewGroup container, Bundle savedInstanceState) {
             return inflater.inflate(R.layout.fragment_parking, container, false);
         }
-
+//...
         @Override
         public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
