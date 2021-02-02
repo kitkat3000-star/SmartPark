@@ -18,7 +18,7 @@ allprojects {
         google()
         jcenter()
         flatDir {
-            dirs 'C:\\Users\\Zeerak\'s\\Desktop\\MERIDIAN'
+            dirs 'C:/Program Files/Android/Android Studio'
         }
     }
 }

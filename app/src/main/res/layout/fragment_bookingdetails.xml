@@ -201,7 +201,7 @@
         app:layout_constraintVertical_bias="0.81" />
 
     <TextView
-        android:id="@+id/zone"
+        android:id="@+id/userZone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="entrance"
@@ -238,11 +238,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.793"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zone"
+        app:layout_constraintTop_toBottomOf="@+id/userZone"
         app:layout_constraintVertical_bias="0.117" />
 
     <TextView
-        android:id="@+id/parking"
+        android:id="@+id/userParkedSpot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="D5"
@@ -266,7 +266,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.794"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/parking"
+        app:layout_constraintTop_toBottomOf="@+id/userParkedSpot"
         app:layout_constraintVertical_bias="0.195" />
 
     <androidx.constraintlayout.widget.Guideline

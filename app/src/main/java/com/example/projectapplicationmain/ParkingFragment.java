@@ -186,6 +186,10 @@
                                 {
                                     Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
                                     String parkingSpot = document.getId();
+                                    String parkingZoneA = "Zone A";
+                                    Fstore.collection("Users").document(userID).update("parkingSpot",parkingSpot);
+                                    Fstore.collection("Users").document(userID).update("parkingZone",parkingZoneA);
+
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone A").document(parkingSpot)
                                             .update("status", false);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone A").document(parkingSpot)
@@ -218,6 +222,9 @@
                                 {
                                     Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
                                     String parkingSpot = document.getId();
+                                    String parkingZoneB = "Zone B";
+                                    Fstore.collection("Users").document(userID).update("parkingSpot",parkingSpot);
+                                    Fstore.collection("Users").document(userID).update("parkingZone",parkingZoneB);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingSpot)
                                             .update("status", false);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingSpot)
@@ -250,6 +257,9 @@
                                 {
                                     Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
                                     String parkingSpot = document.getId();
+                                    String parkingZoneC = "Zone C";
+                                    Fstore.collection("Users").document(userID).update("parkingSpot",parkingSpot);
+                                    Fstore.collection("Users").document(userID).update("parkingZone",parkingZoneC);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingSpot)
                                             .update("status", false);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingSpot)
@@ -282,6 +292,9 @@
                                 {
                                     Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
                                     String parkingSpot = document.getId();
+                                    String parkingZoneD = "Zone D";
+                                    Fstore.collection("Users").document(userID).update("parkingSpot",parkingSpot);
+                                    Fstore.collection("Users").document(userID).update("parkingZone",parkingZoneD);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone D").document(parkingSpot)
                                             .update("status", false);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone D").document(parkingSpot)
@@ -318,7 +331,9 @@
                                 {
                                     Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
                                     String parkingSpot = document.getId();
-
+                                    String parkingZoneAvalet = "Zone A";
+                                    Fstore.collection("Users").document(userID).update("parkingSpot",parkingSpot);
+                                    Fstore.collection("Users").document(userID).update("parkingZone",parkingZoneAvalet);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone A").document(parkingSpot)
                                             .update("status", false);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone A").document(parkingSpot)
@@ -362,7 +377,9 @@
                                 {
                                     Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
                                     String parkingSpot = document.getId();
-
+                                    String parkingZoneBvalet = "Zone B";
+                                    Fstore.collection("Users").document(userID).update("parkingSpot",parkingSpot);
+                                    Fstore.collection("Users").document(userID).update("parkingZone",parkingZoneBvalet);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingSpot)
                                             .update("status", false);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone B").document(parkingSpot)
@@ -406,6 +423,9 @@
                                 {
                                     Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
                                     String parkingSpot = document.getId();
+                                    String parkingZoneCvalet = "Zone C";
+                                    Fstore.collection("Users").document(userID).update("parkingSpot",parkingSpot);
+                                    Fstore.collection("Users").document(userID).update("parkingZone",parkingZoneCvalet);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingSpot)
                                             .update("status", false);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone C").document(parkingSpot)
@@ -449,6 +469,9 @@
                                 {
                                     Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
                                     String parkingSpot = document.getId();
+                                    String parkingZoneDvalet = "Zone A";
+                                    Fstore.collection("Users").document(userID).update("parkingSpot",parkingSpot);
+                                    Fstore.collection("Users").document(userID).update("parkingZone",parkingZoneDvalet);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone D").document(parkingSpot)
                                             .update("status", false);
                                     Fstore.collection("Parking Lot").document("UOWD").collection("Zone D").document(parkingSpot)
