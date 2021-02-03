@@ -75,5 +75,6 @@
     <string name="title_activity_main5">MainActivity</string>
     <string name="CarRequest" />
     <string name="Information">Information</string>
+    <string name="informationUpdate">Information</string>
     <string name="Myvehicles">Myvehicles</string>
 </resources>

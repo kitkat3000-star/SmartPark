@@ -15,13 +15,20 @@ import androidx.navigation.Navigation;
 
 import com.example.projectapplicationmain.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.ListenerRegistration;
 
 public class HomeFragment extends Fragment {
     FirebaseAuth mAuth;
     FirebaseFirestore Fstore = FirebaseFirestore.getInstance();
-    String userID,UserName;
+    String userID,name;
+    DocumentReference dRef;
     TextView username;
+    ListenerRegistration registration;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -35,16 +42,17 @@ public class HomeFragment extends Fragment {
 //        mAuth = FirebaseAuth.getInstance();
 //        userID = mAuth.getCurrentUser().getUid();
 //        username = (TextView) view.findViewById(R.id.username);
-//        DocumentReference dRef = Fstore.collection("Users").document(userID);
-//        dRef.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
+//         dRef = Fstore.collection("Users").document(userID);
+//         registration = dRef.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
 //            @Override
 //            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
 //                // Only works if you have ocr input
-//                UserName = value.getString("name");
+//                name = value.getString("name");
+//                username.setText(name);
 //            }
 //        });
-//
-//        username.setText(UserName);
+
+
 
         NavController navController = Navigation.findNavController(view);
 
@@ -89,6 +97,12 @@ public class HomeFragment extends Fragment {
         });
 
     }
+
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        registration.remove();
+//    }
 }
 
 

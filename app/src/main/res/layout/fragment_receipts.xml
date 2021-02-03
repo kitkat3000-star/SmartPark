@@ -147,7 +147,7 @@
         android:layout_height="wrap_content"
         android:text="7366 xxxx xxxx"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/duration"
+        app:layout_constraintBottom_toTopOf="@+id/licensePlateText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.785"
         app:layout_constraintStart_toStartOf="parent"
@@ -250,12 +250,12 @@
         app:layout_constraintVertical_bias="0.209" />
 
     <TextView
-        android:id="@+id/duration"
+        android:id="@+id/licensePlateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2 HRS"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/Amount"
+        app:layout_constraintBottom_toTopOf="@+id/userMobileEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.785"
         app:layout_constraintStart_toStartOf="parent"
@@ -278,7 +278,7 @@
         app:layout_constraintVertical_bias="0.016" />
 
     <TextView
-        android:id="@+id/Amount"
+        android:id="@+id/userMobileEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10 DHS"

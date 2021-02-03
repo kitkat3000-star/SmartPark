@@ -261,8 +261,19 @@
         <action
             android:id="@+id/action_navigation_information_to_navigation_profile"
             app:destination="@id/navigation_profile" />
-    </fragment>
 
+        <action android:id="@+id/action_navigation_information_to_navigation_updateinfo"
+            app:destination="@id/navigation_updateinfo"/>
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_updateinfo"
+        android:name="com.example.projectapplicationmain.InformationUpdateFragment"
+        android:label="@string/informationUpdate"
+        tools:layout="@layout/fragment_updateinfo" >
+        <action
+            android:id="@+id/action_navigation_updateinfo_to_navigation_information"
+            app:destination="@id/navigation_information" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_myvehicles"
         android:name="com.example.projectapplicationmain.VehiclesFragment"

@@ -102,16 +102,15 @@
         app:layout_constraintVertical_bias="0.044" />
 
     <TextView
-        android:id="@+id/duration"
+        android:id="@+id/licensePlateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="H 1"
+        android:layout_marginBottom="36dp"
         android:textColor="#8F000000"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/view6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.782"
+        app:layout_constraintHorizontal_bias="0.767"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView

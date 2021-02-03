@@ -256,7 +256,7 @@
         app:layout_constraintVertical_bias="0.128" />
 
     <TextView
-        android:id="@+id/duration"
+        android:id="@+id/licensePlateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2 hours"
