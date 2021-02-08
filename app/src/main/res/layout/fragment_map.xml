@@ -30,13 +30,6 @@
 <!--        app:layout_constraintTop_toTopOf="@+id/imageView2"-->
 <!--        app:layout_constraintVertical_bias="0.723" />-->
 
-    <com.arubanetworks.meridian.maps.MapView
-        android:id="@+id/demo_mapview"
-        android:layout_width="404dp"
-        android:layout_height="491dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
     <ImageView
         android:id="@+id/userprofile"
         android:layout_width="19dp"
@@ -115,6 +108,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
         app:layout_constraintVertical_bias="0.582" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/maplayout"
+        android:layout_width="404dp"
+        android:layout_height="513dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/nextdashboard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,5 +1,6 @@
 package com.example.projectapplicationmain;
 
+import android.accounts.AbstractAccountAuthenticator;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.arubanetworks.meridian.maps.directions.DirectionsDestination;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,6 +39,8 @@ public class ParkingFragment extends Fragment {
     DocumentReference dREF;
     String userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
     String valetId = null;
+    public String parkingSpot;
+DirectionsDestination dddd;
 
 
     FirebaseFirestore Fstore = FirebaseFirestore.getInstance();
@@ -185,7 +189,7 @@ public class ParkingFragment extends Fragment {
                             for (QueryDocumentSnapshot document : task.getResult())
                             {
                                 Toast.makeText(getActivity(), "Spot Allocated " + document.getId(), Toast.LENGTH_SHORT).show();
-                                String parkingSpot = document.getId();
+                                parkingSpot = document.getId();
                                 String parkingZoneA = "Zone A";
                                 Fstore.collection("Users").document(userID).update("parkingSpot",parkingSpot);
                                 Fstore.collection("Users").document(userID).update("parkingZone",parkingZoneA);

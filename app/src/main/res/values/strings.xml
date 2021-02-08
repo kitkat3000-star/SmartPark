@@ -77,4 +77,5 @@
     <string name="Information">Information</string>
     <string name="informationUpdate">Information</string>
     <string name="Myvehicles">Myvehicles</string>
+    <string name="msg_token_fmt" />
 </resources>
