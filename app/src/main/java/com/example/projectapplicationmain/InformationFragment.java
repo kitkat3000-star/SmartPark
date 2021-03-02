@@ -42,7 +42,7 @@ public class InformationFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         NavController navController = Navigation.findNavController(view);
-       TextView userName = (TextView) view.findViewById(R.id.usernameText);
+        TextView userName = (TextView) view.findViewById(R.id.usernameText);
         TextView userEmail = (TextView) view.findViewById(R.id.userEmailText);
         TextView userMobile = (TextView) view.findViewById(R.id.userMobileText);
         dREF = firenode.collection("Users").document(userID);

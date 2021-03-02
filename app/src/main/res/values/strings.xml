@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Projectapplicationmain</string>
     <string name="registeruser"><u>Don\'t have an account yet \?</u></string>
-    <string name="bookpark"><i>Please note that selecting a Valet Parking option will redirect you to the entrance for the selected zone</i></string>
+    <string name="bookpark"><i>Please note that selecting a Valet Parking option will redirect you to the drop off zone</i></string>
     <string name="bookhistory"><i>Please tap on a booking to view details</i></string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
@@ -21,6 +21,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_verifyuser">Verify User</string>
+    <string name="title_verifyVIPuser">Verify Vip User</string>
     <string name="title_parking">Parking</string>
     <string name="map">map</string>
     <string name="carwash"> carwash </string>
@@ -34,8 +35,9 @@
     <string-array name="zone_array">
         <item>Zone A</item>
         <item>Zone B</item>
-        <item>Zone C</item>
-        <item>Zone D</item>
+    </string-array>
+    <string-array name="VIP_array">
+        <item>VIP zone</item>
     </string-array>
     <string-array name="locations">
         <item>UOWD</item>
@@ -78,4 +80,6 @@
     <string name="informationUpdate">Information</string>
     <string name="Myvehicles">Myvehicles</string>
     <string name="msg_token_fmt" />
+    <string name="title_activity_dashboard2">MainActivity</string>
+    <string name="title_userprofile">Profile</string>
 </resources>

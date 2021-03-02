@@ -32,7 +32,8 @@ public class RegisterActivity extends Activity {
     private FirebaseAuth mAuth;
     FirebaseFirestore FirestoreNode = FirebaseFirestore.getInstance();
     String userID;
-    DocumentReference dREF;
+    DocumentReference dREF,BREF;
+    DocumentReference SpotRef;
 
 
 
@@ -76,11 +77,21 @@ public class RegisterActivity extends Activity {
                                     USERS.put("licensePlate", REGISTER_license_Num);
                                     USERS.put("name", REGISTER_name);
                                     USERS.put("phoneNumber", REGISTER_phone_Num);
-
-
                                     dREF.set(USERS);
-                                    dREF.update("enteredParkingLot",enteredParking,"leftParkingLot",exitedParking,"parked", parkedinSpot);
+                                    dREF.update("enteredParkingLot",enteredParking,"leftParkingLot",exitedParking,
+                                            "parked",parkedinSpot,"parkingSpot","","parkingZone","","type","","carwashTime","","checkInTime","");
 
+                                    BREF = FirestoreNode.collection("Users").document(userID).collection("VIP Booking").document("VIP booking info");
+                                    Map<String, String> vip = new HashMap<String, String>();
+                                    String parkingSpot = "";
+                                    String date ="";
+                                    vip.put("parkingSpot",parkingSpot);
+                                    vip.put("arrivalDate", date);
+                                    BREF.set(vip);
+//                                    String ParkingSpot = "";
+//                                    Map<String, String> Spot = new HashMap<String, String>();
+//                                    Spot.put("ParkingSpot", ParkingSpot);
+//                                    SpotRef.set(Spot);
 
 
 

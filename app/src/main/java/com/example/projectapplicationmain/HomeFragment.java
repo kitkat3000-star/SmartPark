@@ -1,4 +1,4 @@
-package com.example.projectapplicationmain.ui.home;
+package com.example.projectapplicationmain;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,37 +23,36 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
 
+import java.util.Objects;
+
 public class HomeFragment extends Fragment {
-    FirebaseAuth mAuth;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseFirestore Fstore = FirebaseFirestore.getInstance();
-    String userID,name;
-    DocumentReference dRef;
+    String userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+    DocumentReference dREF;
     TextView username;
-    ListenerRegistration registration;
+    Boolean parked = true;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
-       return inflater.inflate(R.layout.fragment_home,container,false);
-}
+        return inflater.inflate(R.layout.fragment_home,container,false);
+    }
 
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        mAuth = FirebaseAuth.getInstance();
-//        userID = mAuth.getCurrentUser().getUid();
-//        username = (TextView) view.findViewById(R.id.username);
-//         dRef = Fstore.collection("Users").document(userID);
-//         registration = dRef.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
+//
+//        username =  view.findViewById(R.id.username);
+//        dREF = Fstore.collection("Users").document(userID);
+//        dREF.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
 //            @Override
 //            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
 //                // Only works if you have ocr input
-//                name = value.getString("name");
+//                String name = value.getString("name");
 //                username.setText(name);
 //            }
 //        });
-
-
 
         NavController navController = Navigation.findNavController(view);
 
@@ -60,39 +60,64 @@ public class HomeFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_navigation_home_to_navigation_verifyUser);
-            }
-        });
+
+                dREF = Fstore.collection("Users").document(userID);
+                                        dREF.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        assert value != null;
+                         parked = value.getBoolean("parked");
+                        if(parked.equals(false)) {
+                            navController.navigate(R.id.action_navigation_home_to_navigation_verifyUser);
+                        }
+                        else
+                            Toast.makeText(getActivity(), "You have already parked!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }        });
 
         Button button1 = view.findViewById(R.id.vipbook);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 navController.navigate(R.id.action_navigation_home_to_navigation_vipbook);
+
             }
         });
 
-        Button button2 = view.findViewById(R.id.bookhistory);
-        button2.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            navController.navigate(R.id.action_navigation_home_to_navigation_bookinghistory);
-        }
-    });
-
-        Button button3 = view.findViewById(R.id.Receipts);
-        button3.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-        navController.navigate(R.id.action_navigation_home_to_navigation_receipts);
-        }
-        });
-
-        Button userprofile = view.findViewById(R.id.userprofile);
-        userprofile.setOnClickListener(new View.OnClickListener() {
+        Button bookhistory = view.findViewById(R.id.bookhistory);
+        bookhistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_navigation_home_to_navigation_profile);
+                navController.navigate(R.id.action_navigation_home_to_navigation_bookinghistory);
+            }
+        });
+
+
+
+
+
+        Button services = view.findViewById(R.id.services);
+        services.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dREF = Fstore.collection("Users").document(userID);
+                dREF.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        assert value != null;
+                        Boolean parked = value.getBoolean("parked");
+                        if(parked) {
+                            navController.navigate(R.id.action_navigation_home_to_navigation_home2);
+                        }
+                        else
+                        {
+                            Toast.makeText(getActivity(), "Services not available yet as you have not parked", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
             }
         });
 
@@ -104,14 +129,6 @@ public class HomeFragment extends Fragment {
 //        registration.remove();
 //    }
 }
-
-
-
-
-
-
-
-
 
 
 //        homeViewModel =

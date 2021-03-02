@@ -1,12 +1,10 @@
 package com.example.projectapplicationmain;
 
 import android.Manifest;
-import android.app.Activity;
-import android.content.Intent;
+import android.content.BroadcastReceiver;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Matrix;
-import android.graphics.PointF;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +16,6 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -27,14 +24,12 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.android.volley.VolleyError;
 import com.arubanetworks.meridian.Meridian;
 import com.arubanetworks.meridian.editor.EditorKey;
 import com.arubanetworks.meridian.editor.Placemark;
 import com.arubanetworks.meridian.location.LocationRequest;
 import com.arubanetworks.meridian.location.MeridianLocation;
 import com.arubanetworks.meridian.location.MeridianOrientation;
-import com.arubanetworks.meridian.maps.ClusteredMarker;
 import com.arubanetworks.meridian.maps.FlatPlacemarkMarker;
 import com.arubanetworks.meridian.maps.MapFragment;
 import com.arubanetworks.meridian.maps.MapOptions;
@@ -42,19 +37,20 @@ import com.arubanetworks.meridian.maps.MapView;
 import com.arubanetworks.meridian.maps.Marker;
 import com.arubanetworks.meridian.maps.directions.Directions;
 import com.arubanetworks.meridian.maps.directions.DirectionsDestination;
-import com.arubanetworks.meridian.maps.directions.DirectionsResponse;
-import com.arubanetworks.meridian.maps.directions.DirectionsSource;
-import com.arubanetworks.meridian.maps.directions.TransportType;
-import com.arubanetworks.meridian.search.SearchActivity;
-import com.arubanetworks.meridian.util.Strings;
-import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
-import static android.service.controls.ControlsProviderService.TAG;
+import java.util.Objects;
 
 public class MapsFragment extends Fragment {/*implements MapView.DirectionsEventListener, MapView.MapEventListener, MapView.MarkerEventListener*/
 
 
 //ParkingFragment POBJ = new ParkingFragment();
+private static final String TAG = "MyActivity";
 
     private MapView mapView;
     private static final String PENDING_DESTINATION_KEY = "meridianSamples.PendingDestinationKey";
@@ -63,11 +59,19 @@ public class MapsFragment extends Fragment {/*implements MapView.DirectionsEvent
     private LocationRequest locationRequest;
     final EditorKey directionsDestination = EditorKey.forPlacemark("6487331234250752_4725445002133504", LandingActivity.mapKey);
     MeridianLocation Source;
+    private BroadcastReceiver receiver;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    String userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+    DocumentReference dREF;
+    FirebaseFirestore Fstore = FirebaseFirestore.getInstance();
+    String ParkingSpot1;
+    String ParkingZone;
+    String placemark1;
 
     //   public static final EditorKey placemark = EditorKey.forPlacemark("6487331234250752_4725445002133504", LandingActivity.mapKey);
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Meridian.getShared().setForceSimulatedLocation(true);
+
         View mapLayout = inflater.inflate(R.layout.fragment_map, container, false);
 
         if (savedInstanceState == null) {
@@ -81,10 +85,11 @@ public class MapsFragment extends Fragment {/*implements MapView.DirectionsEvent
         }
 
         MapFragment.Builder builder = new MapFragment.Builder()
+                .setAppKey(LandingActivity.appKey)
                 .setMapKey(LandingActivity.mapKey);
         MapOptions mapOptions = MapOptions.getDefaultOptions();
         // Turn off the overview button (only shown if there is an overview map for the location)
-        mapOptions.HIDE_OVERVIEW_BUTTON = true;
+       mapOptions.HIDE_OVERVIEW_BUTTON = true;
         // example: how to set placemark markers text size
         //mapOptions.setTextSize(14);
         builder.setMapOptions(mapOptions);
@@ -113,41 +118,56 @@ public class MapsFragment extends Fragment {/*implements MapView.DirectionsEvent
 
             @Override
             public void onPlacemarksLoadFinish() {
+
+
                 // example: how to start directions programmatically
+                final int[] index = {0};
                 for (Placemark placemark : mapFragment.getMapView().getPlacemarks()) {
-//String PPP = POBJ.parkingSpot;
+                    dREF = Fstore.collection("Users").document(userID);
+                    dREF.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                    if ("C2".equals(placemark.getName())) {
-                        mapFragment.startDirections(DirectionsDestination.forPlacemarkKey(placemark.getKey()));
-                    }
-                }
-                // example: highlight the first four placemarks
+                            ParkingSpot1 = value.getString("parkingSpot");
+                            ParkingZone = value.getString("parkingZone");
 
-//                        ArrayList<Marker> markerList = new ArrayList<>();
-//                        int index = 0;
-//                        MapView mapView = mapFragment.getMapView();
-//                        if (mapView != null && mapView.getAllMarkers() != null) {
-//                            for (Marker marker : mapView.getAllMarkers()) {
-//                                markerList.add(marker);
-//                                index++;
-//                                if (index >= 4) {
-//                                    HighlightedMarkers highlightedMarkers = new HighlightedMarkers.Builder(markerList).build();
-//                                    mapView.commitTransaction(new Transaction.Builder().setAnimationDuration(500).addMarker(highlightedMarkers).build());
-//                                    break;
-//                                }
-//                            }
-//                        }
+                            if(ParkingZone.equals("Zone C"))
+                            {
+                                placemark1 = "valetDropOff";
+                            }
+                            else
+                            {
+                                placemark1 = ParkingSpot1;
+                            }
 
-                // example: change color of first placemark marker
+                            Log.d("AAA", ParkingSpot1);
+                            index[0]++;
+                            if (placemark1.equals(placemark.getName())) {
+                                placemarkcolor(index[0]);
+                                mapFragment.startDirections(DirectionsDestination.forPlacemarkKey(placemark.getKey()));
+                            }
+                        }
+                    });
 
-                for (Marker marker : mapFragment.getMapView().getAllMarkers()) {
-                    if (marker instanceof FlatPlacemarkMarker) {
-                        ((FlatPlacemarkMarker) marker).setTintColor(Color.RED);
-                        break;
-                    }
+
                 }
 
             }
+                public void placemarkcolor(int index)
+                {
+                    int i = 0;
+                    for (Marker marker : mapFragment.getMapView().getAllMarkers()) {
+                        if (marker instanceof FlatPlacemarkMarker) {
+                            i++;
+                            if(i == index) {
+                                ((FlatPlacemarkMarker) marker).setTintColor(Color.RED);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+
 
             @Override
             public void onMapRenderFinish() { }
@@ -189,7 +209,9 @@ public class MapsFragment extends Fragment {/*implements MapView.DirectionsEvent
                 // Note that the default behavior (return false) provides animation and error handling
                 final MapView mapView = mapFragment.getMapView();
                 MeridianLocation location = mapView.getUserLocation();
+                mapView.setShowsUserLocation(true);
                 if (location != null) {
+                    mapView.showsUserLocation();
                     mapView.updateForLocation(location);
 
                 } else {
@@ -238,7 +260,7 @@ public class MapsFragment extends Fragment {/*implements MapView.DirectionsEvent
 //            // Set map options if desired
 //            MapOptions mapOptions = mapView.getOptions();
 //            mapOptions.HIDE_MAP_LABEL = true;
-//            mapView.setOptions(mapOptions);
+//            mapView.setOptions(mapOptions);ote
 //
 //            // Set which map to load
 //            // It is recommended to do this after setting the map options
@@ -446,21 +468,21 @@ public class MapsFragment extends Fragment {/*implements MapView.DirectionsEvent
 //        startDirections(destination, source);
 //    }
 //
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        // Begin monitoring for Aruba Beacon-based Campaign events
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-//            // now request background permissions, should use a fancy UI for this
-//            if (permissions[0].equals(Manifest.permission.ACCESS_FINE_LOCATION) && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                String[] permissions2 = new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION};
-//                ActivityCompat.requestPermissions(getActivity(), permissions2, 1);
-//                return;
-//            }
-//        }
-//
-//    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        // Begin monitoring for Aruba Beacon-based Campaign events
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // now request background permissions, should use a fancy UI for this
+            if (permissions[0].equals(Manifest.permission.ACCESS_FINE_LOCATION) && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                String[] permissions2 = new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION};
+                ActivityCompat.requestPermissions(getActivity(), permissions2, 1);
+                return;
+            }
+        }
+
+    }
 
     @Override
     public void onViewCreated(@NonNull android.view.View view, @Nullable Bundle savedInstanceState) {

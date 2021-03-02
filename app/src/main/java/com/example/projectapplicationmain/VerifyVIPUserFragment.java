@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.example.projectapplicationmain.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -23,7 +24,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.Objects;
 
-public class VerifyUserFragment extends Fragment {
+public class VerifyVIPUserFragment extends Fragment {
 
     FirebaseFirestore firenode = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -35,7 +36,7 @@ public class VerifyUserFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_verifyuser, container, false);
+        return inflater.inflate(R.layout.fragment_verify_vipuser, container, false);
     }
 
     @Override
@@ -50,7 +51,7 @@ public class VerifyUserFragment extends Fragment {
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 // Only works if you have ocr input
                 verifiedUser = value.getBoolean("enteredParkingLot");
-               ;
+
             }
         });
 
@@ -64,23 +65,23 @@ public class VerifyUserFragment extends Fragment {
 
                     Toast.makeText(getActivity(), "Verification successful", Toast.LENGTH_SHORT).show();
 
-                    navController.navigate(R.id.action_navigation_verifyUser_to_navigation_parking);
+                 // change this to scanbarcode to map
+                    navController.navigate(R.id.action_navigation_verify_vipuser_to_navigation_map);
 
                 }  else {
 
                     Toast.makeText(getActivity(), "Verification unsuccessful", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
 
-        ImageView imageView = view.findViewById(R.id.imageView3);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_navigation_verifyUser_to_navigation_home);
-            }
-        });
-
-    }
+//        ImageView imageView = view.findViewById(R.id.imageView3);
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                navController.navigate(R.id.action_navigation_scanbarcode_to_navigation_home);
+//            }
+//        });
+//
+  }
 }

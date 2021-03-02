@@ -1,5 +1,6 @@
 package com.example.projectapplicationmain;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +14,10 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-public class UserProfileFragment extends Fragment {
+import com.google.firebase.auth.FirebaseAuth;
 
+public class UserProfileFragment extends Fragment {
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_userprofile, container, false);
@@ -48,6 +51,17 @@ public class UserProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 navController.navigate(R.id.action_navigation_profile_to_navigation_home);
+            }
+        });
+
+        Button logoutButton = view.findViewById(R.id.userLogout);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                Intent i = new Intent(getActivity(), LoginActivity.class);
+                startActivity(i);
+
             }
         });
 

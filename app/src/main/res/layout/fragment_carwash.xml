@@ -19,17 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.47000003" />
 
-    <ImageView
-        android:id="@+id/userprofile"
-        android:layout_width="19dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/icon___more___filled"
-        app:layout_constraintBottom_toTopOf="@+id/Receipts"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintRight_toRightOf="@id/Carwash"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
 
     <ImageView
         android:id="@+id/imageView3"
@@ -85,7 +75,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/carlocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="A2"
@@ -99,7 +89,7 @@
 
 
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/timecarwash"
         android:layout_width="163dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/black"
@@ -126,7 +116,7 @@
         app:layout_constraintVertical_bias="0.491" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/additionalinstruction"
         android:layout_width="277dp"
         android:layout_height="44dp"
         android:layout_marginStart="56dp"

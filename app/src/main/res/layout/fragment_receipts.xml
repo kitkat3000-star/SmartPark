@@ -20,18 +20,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/userprofile"
-        android:layout_width="19dp"
-        android:layout_height="26dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/icon___more___filled"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintRight_toRightOf="@id/receipts"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.769" />
-
-    <ImageView
         android:id="@+id/imageView3"
         android:layout_width="19dp"
         android:layout_height="20dp"
@@ -76,7 +64,7 @@
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Card No."
+        android:text="Paid By"
         android:textColor="@color/black"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -145,9 +133,9 @@
         android:id="@+id/cardno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="7366 xxxx xxxx"
+        android:text="Card"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/licensePlateText"
+        app:layout_constraintBottom_toTopOf="@+id/Duration"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.785"
         app:layout_constraintStart_toStartOf="parent"
@@ -250,12 +238,12 @@
         app:layout_constraintVertical_bias="0.209" />
 
     <TextView
-        android:id="@+id/licensePlateText"
+        android:id="@+id/Duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2 HRS"
+        android:text="2 hrs"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/userMobileEdit"
+        app:layout_constraintBottom_toTopOf="@+id/amount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.785"
         app:layout_constraintStart_toStartOf="parent"
@@ -278,7 +266,7 @@
         app:layout_constraintVertical_bias="0.016" />
 
     <TextView
-        android:id="@+id/userMobileEdit"
+        android:id="@+id/amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10 DHS"

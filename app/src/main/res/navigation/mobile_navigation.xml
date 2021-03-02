@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.projectapplicationmain.ui.home.HomeFragment"
+        android:name="com.example.projectapplicationmain.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_navigation_verifyUser"
-            app:destination="@id/navigation_verifyUser_Fragment" />
+            app:destination="@id/navigation_verifyUser" />
         <action
             android:id="@+id/action_navigation_home_to_navigation_vipbook"
             app:destination="@id/navigation_vipbook" />
@@ -20,11 +20,14 @@
             android:id="@+id/action_navigation_home_to_navigation_bookinghistory"
             app:destination="@id/navigation_bookinghistory" />
         <action
-            android:id="@+id/action_navigation_home_to_navigation_receipts"
-            app:destination="@id/navigation_receipts" />
-        <action
             android:id="@+id/action_navigation_home_to_navigation_profile"
             app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_home2"
+            app:destination="@id/navigation_home2" />
+       <action
+           android:id="@+id/action_navigation_home_to_navigation_verify_vipuser"
+           app:destination="@id/navigation_verify_vipuser" />
     </fragment>
 
     <fragment
@@ -32,12 +35,7 @@
         android:name="com.example.projectapplicationmain.Home2Fragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home2" >
-        <action
-            android:id="@+id/action_navigation_home2_to_navigation_bookinghistory"
-            app:destination="@id/navigation_bookinghistory" />
-        <action
-            android:id="@+id/action_navigation_home2_to_navigation_receipts"
-            app:destination="@id/navigation_receipts" />
+
         <action
             android:id="@+id/action_navigation_home2_to_navigation_carlocation"
             app:destination="@id/navigation_carlocation" />
@@ -50,6 +48,9 @@
         <action
             android:id="@+id/action_navigation_home2_to_navigation_carrequest"
             app:destination="@id/navigation_carrequest" />
+        <action
+            android:id="@+id/action_navigation_home2_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
     <fragment
@@ -73,20 +74,36 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_verifyUser_Fragment"
+        android:id="@+id/navigation_verifyUser"
         android:name="com.example.projectapplicationmain.VerifyUserFragment"
         android:label="@string/title_verifyuser"
         tools:layout="@layout/fragment_verifyuser">
         <action
-            android:id="@+id/action_navigation_scanbarcode_to_navigation_home"
+            android:id="@+id/action_navigation_verifyUser_to_navigation_home"
             app:destination="@id/navigation_home" />
         <action
-            android:id="@+id/action_navigation_scanbarcode_to_navigation_parking"
+            android:id="@+id/action_navigation_verifyUser_to_navigation_parking"
             app:destination="@id/navigation_parking" />
-        <action
-            android:id="@+id/action_navigation_scanbarcode_to_navigation_profile"
-            app:destination="@id/navigation_profile" />
+<!--        <action-->
+<!--            android:id="@+id/action_navigation_scanbarcode_to_navigation_profile"-->
+<!--            app:destination="@id/navigation_profile" />-->
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_verify_vipuser"
+        android:name="com.example.projectapplicationmain.VerifyVIPUserFragment"
+        android:label="@string/title_verifyVIPuser"
+        tools:layout="@layout/fragment_verify_vipuser">
+        <action
+            android:id="@+id/action_navigation_verify_vipuser_to_navigation_map"
+            app:destination="@id/navigation_map" />
+
+        <!--        <action-->
+        <!--            android:id="@+id/action_navigation_scanbarcode_to_navigation_profile"-->
+        <!--            app:destination="@id/navigation_profile" />-->
+    </fragment>
+
+
 
     <fragment
         android:id="@+id/navigation_parking"
@@ -101,7 +118,7 @@
             app:destination="@id/navigation_map" />
         <action
             android:id="@+id/action_navigation_parking_to_navigation_verifyUser"
-            app:destination="@id/navigation_verifyUser_Fragment" />
+            app:destination="@id/navigation_verifyUser" />
     </fragment>
 
     <fragment
@@ -164,10 +181,10 @@
     </fragment>
 
     <fragment
-    android:id="@+id/navigation_vipbook"
-    android:name="com.example.projectapplicationmain.VIPBookingFragment"
-    android:label="@string/vipbook"
-    tools:layout="@layout/fragment_vipbooking" >
+        android:id="@+id/navigation_vipbook"
+        android:name="com.example.projectapplicationmain.VIPBookingFragment"
+        android:label="@string/vipbook"
+        tools:layout="@layout/fragment_vipbooking" >
         <action
             android:id="@+id/action_navigation_vipbook_to_navigation_home"
             app:destination="@id/navigation_home" />
@@ -193,6 +210,9 @@
         <action
             android:id="@+id/action_navigation_exisitingvipbook_to_navigation_home"
             app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_exisitingvipbook_to_navigation_verify_vipuser"
+            app:destination="@id/navigation_verify_vipuser" />
     </fragment>
 
     <fragment
@@ -222,6 +242,9 @@
         <action
             android:id="@+id/action_navigation_bookingdetails_to_navigation_bookinghistory"
             app:destination="@id/navigation_bookinghistory" />
+        <action
+            android:id="@+id/action_navigation_bookingdetails_to_navigation_receipts"
+            app:destination="@id/navigation_receipts" />
     </fragment>
 
     <fragment
@@ -230,14 +253,11 @@
         android:label="@string/receipts"
         tools:layout="@layout/fragment_receipts" >
         <action
-            android:id="@+id/action_navigation_receipts_to_navigation_home"
-            app:destination="@id/navigation_home" />
-        <action
             android:id="@+id/action_navigation_receipts_to_navigation_profile"
             app:destination="@id/navigation_profile" />
         <action
-            android:id="@+id/action_navigation_receipts_to_navigation_home2"
-            app:destination="@id/navigation_home2" />
+            android:id="@+id/action_navigation_receipts_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
     <fragment

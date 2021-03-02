@@ -45,7 +45,6 @@ public class LandingActivity extends Activity  {
 
 
 
-
         Meridian.configure(LandingActivity.this, StringToken);
       //  Meridian.getShared().setForceSimulatedLocation(true);
         LoginBtn = findViewById(R.id.frontlogin);
