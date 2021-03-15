@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Projectapplicationmain</string>
+    <string name="app_name">SmartParkVol2</string>
     <string name="registeruser"><u>Don\'t have an account yet \?</u></string>
     <string name="bookpark"><i>Please note that selecting a Valet Parking option will redirect you to the drop off zone</i></string>
+    <string name="welcomemsg"><i>Welcome to SmartPark!</i></string>
     <string name="bookhistory"><i>Please tap on a booking to view details</i></string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
@@ -24,6 +25,8 @@
     <string name="title_verifyVIPuser">Verify Vip User</string>
     <string name="title_parking">Parking</string>
     <string name="map">map</string>
+    <string name="what_s_on_your_mind">Enter your query</string>
+    <string name="menu_refresh">Refresh</string>
     <string name="carwash"> carwash </string>
     <string name="carlocation">carlocation</string>
     <string name="userprofile">userprofile</string>
@@ -35,6 +38,7 @@
     <string-array name="zone_array">
         <item>Zone A</item>
         <item>Zone B</item>
+        <item>Valet</item>
     </string-array>
     <string-array name="VIP_array">
         <item>VIP zone</item>

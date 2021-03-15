@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.projectapplicationmain.HomeFragment"
+        android:name="com.example.SmartParkVol2.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/navigation_home2"
-        android:name="com.example.projectapplicationmain.Home2Fragment"
+        android:name="com.example.SmartParkVol2.Home2Fragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home2" >
 
@@ -55,7 +55,7 @@
 
     <fragment
         android:id="@+id/navigation_chatsupport"
-        android:name="com.example.projectapplicationmain.ui.chatsupport.ChatSupportFragment"
+        android:name="com.example.SmartParkVol2.ChatSupportFragment"
         android:label="@string/title_chatsupport"
         tools:layout="@layout/fragment_chatsupport" >
         <action
@@ -65,7 +65,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.projectapplicationmain.ui.notifications.NotificationsFragment"
+        android:name="com.example.SmartParkVol2.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" >
         <action
@@ -75,7 +75,7 @@
 
     <fragment
         android:id="@+id/navigation_verifyUser"
-        android:name="com.example.projectapplicationmain.VerifyUserFragment"
+        android:name="com.example.SmartParkVol2.VerifyUserFragment"
         android:label="@string/title_verifyuser"
         tools:layout="@layout/fragment_verifyuser">
         <action
@@ -84,14 +84,12 @@
         <action
             android:id="@+id/action_navigation_verifyUser_to_navigation_parking"
             app:destination="@id/navigation_parking" />
-<!--        <action-->
-<!--            android:id="@+id/action_navigation_scanbarcode_to_navigation_profile"-->
-<!--            app:destination="@id/navigation_profile" />-->
+
     </fragment>
 
     <fragment
         android:id="@+id/navigation_verify_vipuser"
-        android:name="com.example.projectapplicationmain.VerifyVIPUserFragment"
+        android:name="com.example.SmartParkVol2.VerifyVIPUserFragment"
         android:label="@string/title_verifyVIPuser"
         tools:layout="@layout/fragment_verify_vipuser">
         <action
@@ -107,7 +105,7 @@
 
     <fragment
         android:id="@+id/navigation_parking"
-        android:name="com.example.projectapplicationmain.ParkingFragment"
+        android:name="com.example.SmartParkVol2.ParkingFragment"
         android:label="@string/title_parking"
         tools:layout="@layout/fragment_parking" >
         <action
@@ -123,7 +121,7 @@
 
     <fragment
         android:id="@+id/navigation_map"
-        android:name="com.example.projectapplicationmain.MapsFragment"
+        android:name="com.example.SmartParkVol2.MapsFragment"
         android:label="@string/map"
         tools:layout="@layout/fragment_map" >
         <action
@@ -136,7 +134,7 @@
 
     <fragment
         android:id="@+id/navigation_carwash"
-        android:name="com.example.projectapplicationmain.CarWashFragment"
+        android:name="com.example.SmartParkVol2.CarWashFragment"
         android:label="@string/carwash"
         tools:layout="@layout/fragment_carwash" >
         <action
@@ -149,7 +147,7 @@
 
     <fragment
         android:id="@+id/navigation_carlocation"
-        android:name="com.example.projectapplicationmain.CarLocationFragment"
+        android:name="com.example.SmartParkVol2.CarLocationFragment"
         android:label="@string/carlocation"
         tools:layout="@layout/fragment_carlocation" >
         <action
@@ -162,7 +160,7 @@
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.projectapplicationmain.UserProfileFragment"
+        android:name="com.example.SmartParkVol2.UserProfileFragment"
         android:label="@string/userprofile"
         tools:layout="@layout/fragment_userprofile">
         <action
@@ -182,7 +180,7 @@
 
     <fragment
         android:id="@+id/navigation_vipbook"
-        android:name="com.example.projectapplicationmain.VIPBookingFragment"
+        android:name="com.example.SmartParkVol2.VIPBookingFragment"
         android:label="@string/vipbook"
         tools:layout="@layout/fragment_vipbooking" >
         <action
@@ -198,7 +196,7 @@
 
     <fragment
         android:id="@+id/navigation_exisitingvipbook"
-        android:name="com.example.projectapplicationmain.ExistingVIPBookingFragment"
+        android:name="com.example.SmartParkVol2.ExistingVIPBookingFragment"
         android:label="@string/exisitingvipbook"
         tools:layout="@layout/fragment_existingvipbooking" >
         <action
@@ -217,7 +215,7 @@
 
     <fragment
         android:id="@+id/navigation_bookinghistory"
-        android:name="com.example.projectapplicationmain.BookingHistoryFragment"
+        android:name="com.example.SmartParkVol2.BookingHistoryFragment"
         android:label="@string/bookinghistory"
         tools:layout="@layout/fragment_bookinghistory" >
         <action
@@ -233,7 +231,7 @@
 
     <fragment
         android:id="@+id/navigation_bookingdetails"
-        android:name="com.example.projectapplicationmain.BookingdetailsFragment"
+        android:name="com.example.SmartParkVol2.BookingdetailsFragment"
         android:label="@string/bookingdetails"
         tools:layout="@layout/fragment_bookingdetails" >
         <action
@@ -249,7 +247,7 @@
 
     <fragment
         android:id="@+id/navigation_receipts"
-        android:name="com.example.projectapplicationmain.ReceiptsFragment"
+        android:name="com.example.SmartParkVol2.ReceiptsFragment"
         android:label="@string/receipts"
         tools:layout="@layout/fragment_receipts" >
         <action
@@ -262,7 +260,7 @@
 
     <fragment
         android:id="@+id/navigation_carrequest"
-        android:name="com.example.projectapplicationmain.CarRequestFragment"
+        android:name="com.example.SmartParkVol2.CarRequestFragment"
         android:label="@string/CarRequest"
         tools:layout="@layout/fragment_carrequest" >
         <action
@@ -275,7 +273,7 @@
 
     <fragment
         android:id="@+id/navigation_information"
-        android:name="com.example.projectapplicationmain.InformationFragment"
+        android:name="com.example.SmartParkVol2.InformationFragment"
         android:label="@string/Information"
         tools:layout="@layout/fragment_information" >
         <action
@@ -287,7 +285,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_updateinfo"
-        android:name="com.example.projectapplicationmain.InformationUpdateFragment"
+        android:name="com.example.SmartParkVol2.InformationUpdateFragment"
         android:label="@string/informationUpdate"
         tools:layout="@layout/fragment_updateinfo" >
         <action
@@ -296,7 +294,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_myvehicles"
-        android:name="com.example.projectapplicationmain.VehiclesFragment"
+        android:name="com.example.SmartParkVol2.VehiclesFragment"
         android:label="@string/Myvehicles"
         tools:layout="@layout/fragment_myvehicles" >
 

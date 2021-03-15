@@ -8,6 +8,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:230023997474:android:d68471efc6e7c57800427b",
+        "android_client_info": {
+          "package_name": "com.example.SmartParkVol2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "230023997474-h1t9r5jami44tn933tcigntmd40d38vv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCPuGk-KdCSKrJpsTxmMDoiPvZUTRcu0I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "230023997474-h1t9r5jami44tn933tcigntmd40d38vv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:230023997474:android:d6fe683e4770b3f300427b",
         "android_client_info": {
           "package_name": "com.example.projectapplicationmain"

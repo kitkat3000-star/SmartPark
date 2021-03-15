@@ -144,12 +144,12 @@
         android:id="@+id/editTextLicense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:layout_marginStart="79dp"
         android:layout_marginTop="23dp"
         android:background="@drawable/area__display_elementsdefault__statedefault_"
         android:ems="10"
         android:hint="      license plate number"
-        android:inputType="text"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />

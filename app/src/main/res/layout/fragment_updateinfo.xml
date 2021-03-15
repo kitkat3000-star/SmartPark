@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="60dp">
+    android:paddingTop="20dp">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/updateinfoBtn"
@@ -87,10 +87,10 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.312" />
+        app:layout_constraintVertical_bias="0.311" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -117,7 +117,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView15"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.477" />
+        app:layout_constraintVertical_bias="0.504" />
 
     <TextView
         android:id="@+id/textView15"

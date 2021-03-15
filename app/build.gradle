@@ -3,12 +3,18 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
+repositories {
+    maven {
+        url  "https://dl.bintray.com/ibm-cloud-sdks/ibm-cloud-sdk-repo"
+    }
+}
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.example.projectapplicationmain"
+        applicationId "com.example.SmartParkVol2"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
@@ -55,7 +61,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-firestore:7.1.1'
 
 
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     implementation 'com.google.firebase:firebase-database:19.6.0'
     implementation 'com.google.firebase:firebase-auth:20.0.1'
     implementation 'com.google.firebase:firebase-firestore:22.0.1'
@@ -68,7 +74,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:20.1.0'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
     testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation platform('com.google.firebase:firebase-bom:26.2.0')
     implementation 'com.google.firebase:firebase-analytics'
@@ -77,7 +83,21 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
     implementation 'org.conscrypt:conscrypt-android:2.2.1'
-    implementation 'com.android.support:design:26.1.0'
+
+
+    implementation 'com.android.support:design:30.1.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:recyclerview-v7:30.1.0'
+    implementation 'com.android.support:design:30.1.0'
+    implementation 'com.ibm.watson:assistant:8.5.0'
+    implementation 'com.ibm.watson:text-to-speech:8.5.0'
+    implementation 'com.ibm.watson:speech-to-text:8.5.0'
+    implementation 'com.ibm.watson.developer_cloud:android-sdk:0.5.0'
+    implementation ('com.github.bumptech.glide:glide:4.9.0') {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'com.github.ankitdubey021:MySnack:2.3'
 
 
 }
